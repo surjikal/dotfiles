@@ -6,7 +6,7 @@
 ## Installation
 
 ```
-git clone https://github.com/surjikal/dotfiles.git ~/.dotfiles
+git clone https://github.com/surjikal/dotfiles.git ~/.dotfiles && cd $_
 brew bundle
 stow zsh
 exec zsh -l
