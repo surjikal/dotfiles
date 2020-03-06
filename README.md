@@ -8,6 +8,7 @@
 ```
 git clone https://github.com/surjikal/dotfiles.git ~/.dotfiles
 brew bundle
+stow zsh
 exec zsh -l
 ```
 
