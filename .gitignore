@@ -1,0 +1,12 @@
+# Matching for secret files
+*.secrets?.*
+*-secret.*
+secret.*
+_secret.*
+
+# Turds
+.DS_Store
+.Spotlight-V100
+.Trashes
+*.code-workspace
+*.pyc

@@ -1,0 +1,218 @@
+{
+    "files.insertFinalNewline": true,
+    "files.trimFinalNewlines": true,
+    "editor.suggestSelection": "first",
+    "search.useIgnoreFiles": false,
+    "explorer.confirmDelete": false,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.openEditors.visible": 0,
+    "window.restoreWindows": "one",
+    "liveshare.guestApprovalRequired": true,
+    "liveshare.presence": true,
+    "files.useExperimentalFileWatcher": true,
+    // General
+    "files.trimTrailingWhitespace": true,
+    // Python
+    "python.analysis.memory.keepLibraryAst": true,
+    "python.analysis.memory.keepLibraryLocalVariables": true,
+    "python.analysis.openFilesOnly": false,
+    "python.insidersChannel": "daily",
+    "python.dataScience.sendSelectionToInteractiveWindow": false,
+    "python.pydev.forcedBuiltins": [
+        "pyspark",
+        "google",
+        "google.auth",
+        "google.auth.default"
+    ],
+
+    // Theme settings
+    "materialTheme.accent": "Blue",
+    "editor.minimap.enabled": false,
+    "window.zoomLevel": -2,
+    "editor.fontSize": 20,
+    "editor.fontLigatures": false,
+    "debug.console.fontSize": 14,
+    "editor.cursorStyle": "line-thin",
+    "workbench.colorTheme": "Base16 Tomorrow",
+    "material-icon-theme.folders.theme": "classic",
+    "workbench.editor.limit.enabled": true,
+    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.icons": false,
+    "terminal.integrated.fontSize": 16,
+    "terminal.integrated.cursorStyle": "line",
+    "scm.countBadge": "off",
+    "terminal.integrated.fontFamily": "Menlo, Monaco, monospace",
+    "editor.fontFamily": "Menlo, Monaco, monospace",
+
+    "workbench.colorCustomizations": {
+
+        "activityBar.activeBorder": "#2979FF",
+        "activityBar.activeFocusBorder": "#ff000000",
+        "activityBar.background": "#1A1E2C",
+        "activityBar.border": "#ff000000",
+        "activityBar.foreground": "#afbcc9",
+        "activityBar.inactiveForeground": "#343d46",
+        "activityBarBadge.background": "#2979FF",
+        "activityBarBadge.foreground": "#00000000",
+
+        "contrastActiveBorder": "#ff000000",
+        "contrastBorder": "#22273900",
+
+        // Breadcrumb (hidden)
+        "breadcrumb.activeSelectionForeground": "#2979FF",
+        "breadcrumb.background": "#16171900",
+        "breadcrumb.focusForeground": "#afbcc900",
+        "breadcrumb.foreground": "#67737e00",
+
+        // Editor
+        "editor.background": "#1A1E2C",
+        "editor.findMatchBackground": "#2979FF70",
+        "editor.findMatchBorder": "#005eff00",
+        "editor.findMatchHighlightBackground": "#2979FF70",
+        "editor.hoverHighlightBackground": "#2979FF00",
+        "editor.lineHighlightBackground": "#2979FF00",
+        "editor.lineHighlightBorder": "#2979FF00",
+        "editor.rangeHighlightBackground": "#2979FF00",
+        "editor.selectionBackground": "#2979FF50", // mouse selection
+        "editor.selectionHighlightBackground": "#e1f22c15", // click selection
+        "editor.selectionHighlightBorder": "#e1f22cA0",
+        "editorBracketMatch.border": "#343d46",
+        "editorCursor.foreground": "#67737e",
+        "editorGroupHeader.tabsBackground": "#1A1E2C",
+        "editorIndentGuide.activeBackground": "#343d4680",
+        "editorIndentGuide.background": "#343d4680",
+        "editorLineNumber.foreground": "#343d4680",
+        "editorSuggestWidget.highlightForeground": "#2979FF",
+        "editorWidget.border": "#2979FF",
+        "editorWidget.resizeBorder": "#2979FF",
+
+        // Sidebar
+        "list.activeSelectionBackground": "#222739",
+        "list.activeSelectionForeground": "#2979FF",
+        "list.errorForeground": "#cd6592",
+        "list.highlightForeground": "#2979FF",
+        "list.hoverBackground": "#282D3F",
+        "list.hoverForeground": "#afbcc9",
+        "list.inactiveFocusBackground": "#1A1E2C",
+        "list.inactiveSelectionBackground": "#222739",
+        "list.inactiveSelectionForeground": "#2979FF",
+
+        "menu.selectionForeground": "#2979FF",
+        "menubar.selectionForeground": "#2979FF",
+        "notificationLink.foreground": "#2979FF",
+        "panel.border": "#222739",
+        "panelTitle.activeBorder": "#2979FF",
+        "pickerGroup.foreground": "#2979FF",
+        "progressBar.background": "#2979FF",
+
+        // Scrollbar
+        "scrollbar.shadow": "#00000040",
+        "scrollbarSlider.activeBackground": "#2979FF50",
+        "scrollbarSlider.background": "#afbcc910",
+        "scrollbarSlider.hoverBackground": "#00000000",
+
+        "selection.background": "#2979FF",
+        "settings.headerForeground": "#2979FF",
+        "settings.modifiedItemIndicator": "#2979FF",
+
+        "sideBar.background": "#1A1E2C",
+        "sideBarSectionHeader.background": "#1A1E2C",
+        "sideBarSectionHeader.border": "#1C1F2600",
+        "sideBarSectionHeader.foreground": "#67737e",
+
+        // Tabs
+        "tab.activeBackground": "#1A1E2C",
+        "tab.activeBorder": "#2979FF",
+        "tab.activeForeground": "#afbcc9",
+        "tab.activeModifiedBorder": "#FF0000",
+        "tab.border": "#222739",
+        "tab.hoverBackground": "#343d4640",
+        "tab.inactiveBackground": "#1A1E2C",
+        "tab.inactiveModifiedBorder": "#FF0000",
+        "tab.unfocusedActiveBorder": "#FF0000",
+        "tab.unfocusedActiveModifiedBorder": "#FF0000",
+        "tab.unfocusedHoverBorder": "#343d4640",
+        "textLink.foreground": "#2979FF",
+
+        "titleBar.activeBackground": "#1A1E2C",
+        "titleBar.activeForeground": "#343d4600",
+        "titleBar.border": "#22273910",
+
+        "tree.indentGuidesStroke": "#1C1F26",
+        "widget.shadow": "#FF000000",
+
+        // "editor.findRangeHighlightBackground": "#ff0000",
+        // "editor.findRangeHighlightBorder": "#ff0000",
+        // "editor.symbolHighlightBackground": "#ff0000",
+        // "editor.wordHighlightBackground": "#ff0000",
+        // "sideBar.border": "#222739",
+
+        // Terminal Colors
+        "terminal.foreground": "#ebebeb",
+        "terminalCursor.background": "#ffffff",
+        "terminalCursor.foreground": "#c9a8fa",
+        "terminal.ansiBlack": "#272936",
+        "terminal.ansiBlue": "#caa9fa",
+        "terminal.ansiBrightBlack": "#686868",
+        "terminal.ansiBrightBlue": "#caa9fa",
+        "terminal.ansiBrightCyan": "#9aedfe",
+        "terminal.ansiBrightGreen": "#5af78e",
+        "terminal.ansiBrightMagenta": "#ff92d0",
+        "terminal.ansiBrightRed": "#ff807b",
+        "terminal.ansiBrightWhite": "#ffffff",
+        "terminal.ansiBrightYellow": "#f4f99d",
+        "terminal.ansiCyan": "#9aedfe",
+        "terminal.ansiGreen": "#5af78e",
+        "terminal.ansiMagenta": "#ff92d0",
+        "terminal.ansiRed": "#cd6592",
+        "terminal.ansiWhite": "#c7c7c7",
+        "terminal.ansiYellow": "#f4f99d"
+    },
+    "editor.tokenColorCustomizations": {
+        "textMateRules": [
+            {
+                "scope": "meta.function-call.generic.python",
+                "settings": {
+                    "foreground": "#cd6592"
+                }
+            },
+            {
+                "scope": "variable.parameter.function",
+                "settings": {
+                    "foreground": "#e68fb5"
+                }
+            }
+        ]
+    },
+    "explorer.autoReveal": false,
+    "[typescript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "terminal.integrated.shell.osx": "/bin/zsh",
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    // Extensions
+    "edi-x12.telemetry.disabled": true,
+    "editor.snippetSuggestions": "none",
+    "files.associations": {
+        "*.xml": "xml"
+    },
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": false,
+    "workbench.editor.limit.value": 50,
+    "hdinsight.disableOpenSurveyLink": true,
+}
