@@ -4,8 +4,11 @@
 #     plugins+=(pipenv)
 # fi
 
+is_installed nano && export EDITOR="nano"
+
 # subl
 export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
 
 # vscode
-alias code="code-insiders"
+export PATH="$PATH:/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"
+export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"

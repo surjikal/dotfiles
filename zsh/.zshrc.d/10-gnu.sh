@@ -1,9 +1,10 @@
+#!/usr/bin/env zsh
 
 # coreutils
-export PATH="/usr/local/opt/coreutils/libexec/gnubin:$PATH"
+extend_path /usr/local/opt/coreutils/libexec/gnubin
 
 # gnu grep
-export PATH="/usr/local/opt/grep/libexec/gnubin:$PATH"
+extend_path /usr/local/opt/grep/libexec/gnubin
 
 # gnu tar
-export PATH="/usr/local/opt/gnu-tar/libexec/gnubin:$PATH"
+extend_path /usr/local/opt/gnu-tar/libexec/gnubin
