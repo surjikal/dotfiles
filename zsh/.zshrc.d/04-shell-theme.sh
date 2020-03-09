@@ -1,7 +1,7 @@
 #!/usr/bin/env zsh
 
 custom_git_stats() {
-  if test -d .git
+  if git rev-parse --show-toplevel > /dev/null 2>&1
   then
     local total_insertions=0
     local total_deletions=0
