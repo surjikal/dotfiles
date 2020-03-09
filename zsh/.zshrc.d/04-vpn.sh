@@ -1,6 +1,6 @@
 # #!/usr/bin/env zsh
 
-function __vpn_reachable() {
+function __vpn_is_reachable() {
     local host="${1:-$VPN_TEST_HOST}"
     if [[ -z "$host" ]]; then
         true
@@ -15,25 +15,27 @@ function __vpn_reachable() {
     true
 }
 
-function __vpn_connected() {
+function __vpn_is_connected() {
     local vpn="${1:-$VPN_NAME}"
     local vpn_status=$(networksetup -showpppoestatus "$vpn")
-    if [ "$vpn_status" != "connected" ]; then
-        false
-        return
-    fi
-    true
+    [[ "$vpn_status" != "connected" ]] && return 1
+    return 0
+}
+
+function __vpn_connect() {
+    local vpn="$1"
+    networksetup -connectpppoeservice "$vpn"
 }
 
 function vpn_active() {
     local vpn="${1:-$VPN_NAME}"
-    __vpn_connected "$vpn" && __vpn_reachable
+    __vpn_is_connected "$vpn" && __vpn_is_reachable
 }
 
 function vpn_start() {
     local vpn="${1:-$VPN_NAME}"
     local i=0
-    networksetup -connectpppoeservice "$vpn"
+    __vpn_connect "$vpn"
     while [ $i -le 100 ]; do
         vpn_active "$vpn" && break
         sleep 0.42
