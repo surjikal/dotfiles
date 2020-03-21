@@ -1,48 +1,72 @@
 #!/usr/bin/env zsh
 
-custom_git_stats() {
+
+# Some of these taken here...
+# https://coderwall.com/p/pn8f0g/show-your-git-status-and-branch-in-color-at-the-command-prompt
+
+
+git_stats() {
   if git rev-parse --show-toplevel > /dev/null 2>&1
   then
+    setopt local_options BASH_REMATCH
     local total_insertions=0
     local total_deletions=0
 
     local data=$(git diff --shortstat --cached; git diff --shortstat)
 
-    echo $data | grep -Po '\d+ (?=insertions?)' | while read value; do
-      (( total_insertions = total_insertions + $value ))
+    echo $data | while read value; do
+      if [[ ${value} =~ "([[:digit:]]+) insertions.* ([[:digit:]]+) deletions" ]]; then
+        (( total_insertions = total_insertions + ${BASH_REMATCH[2]:-0} ))
+        (( total_deletions  = total_deletions  + ${BASH_REMATCH[3]:-0} ))
+      fi
     done
 
-    echo $data | grep -Po '\d+ (?=deletions?)' | while read value; do
-      (( total_deletions = total_deletions + $value ))
-    done
-
-    [[ $total_insertions -eq 0 ]] && total_insertions="" || total_insertions="%F{yellow}+$total_insertions"
-    [[ $total_deletions  -eq 0 ]] && total_deletions=""  || total_deletions="%F{red}-$total_deletions"
+    [[ $total_insertions -eq 0 ]] && total_insertions="" || total_insertions="%F{yellow}+$total_insertions%F{clear}"
+    [[ $total_deletions  -eq 0 ]] && total_deletions=""  || total_deletions="%F{red}-$total_deletions%F{clear}"
 
     echo "$total_insertions $total_deletions"
   fi
 }
 
-_custom_pipenv() {
-  basename ${VIRTUAL_ENV%-*}
+custom_git_stats() {
+  echo "$(git_stats)"
 }
 
+icons=()
+
+
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-  dir
-  dir_writable_joined
+  # user_joined
+  # host_joined
+  dir_joined
   vcs_joined
   custom_git_stats_joined
 )
 
+
 POWERLEVEL9K_MODE='nerdfont-complete'
 
+typeset -g POWERLEVEL9K_VCS_{GIT,GITHUB,BITBUCKET}_ICON=""
+POWERLEVEL9K_HIDE_BRANCH_ICON=true
+POWERLEVEL9K_VCS_STAGED_ICON="\b"
+POWERLEVEL9K_VCS_HIDE_TAGS=true
+POWERLEVEL9K_VCS_SHOW_SUBMODULE_DIRTY=false
+POWERLEVEL9K_VCS_UNSTAGED_ICON="\b"
+POWERLEVEL9K_VCS_GIT_HOOKS=()
+POWERLEVEL9K_SHOW_CHANGESET=false
+
 POWERLEVEL9K_CUSTOM_GIT_STATS="custom_git_stats"
+POWERLEVEL9K_CUSTOM_GIT_STATS_ICON=""
+POWERLEVEL9K_CUSTOM_GIT_STATS_SEGMENT_ICON=""
 POWERLEVEL9K_CUSTOM_GIT_STATS_BACKGROUND="clear"
 POWERLEVEL9K_CUSTOM_GIT_STATS_FOREGROUND="008"
 
+POWERLEVEL9K_HOST_FOREGROUND="grey"
+POWERLEVEL9K_HOST_BACKGROUND="clear"
+POWERLEVEL9K_HOST_ICON=""
+POWERLEVEL9K_USER_ICON=""
 
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=white'
-
+POWERLEVEL9K_USER_BACKGROUND="clear"
 
 POWERLEVEL9K_DIR_BACKGROUND='237'
 POWERLEVEL9K_DIR_DEFAULT_BACKGROUND="clear"
@@ -74,11 +98,9 @@ POWERLEVEL9K_GO_VERSION_FOREGROUND='081'
 #POWERLEVEL9K_LEFT_SUBSEGMENT_SEPARATOR='-'
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 
-POWERLEVEL9K_HIDE_BRANCH_ICON=true
-POWERLEVEL9K_VCS_HIDE_TAGS=true
+POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{237}┌%F{clear}"
+POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{237}└%F{clear} "
 
-POWERLEVEL9K_MULTILINE_FIRST_PROMPT_PREFIX="%F{008}┌%F{clear}"
-POWERLEVEL9K_MULTILINE_LAST_PROMPT_PREFIX="%F{008}└%F{clear} "
 
 POWERLEVEL9K_NVM_BACKGROUND='clear'
 POWERLEVEL9K_NVM_FOREGROUND='green'
@@ -100,9 +122,3 @@ POWERLEVEL9K_TIME_FORMAT="%D{%H:%M \uE868  %d.%m}"
 typeset -g POWERLEVEL9K_VCS_{CLEAN,MODIFIED,UNTRACKED}_BACKGROUND='clear'
 typeset -g POWERLEVEL9K_VCS_{CLEAN,UNTRACKED}_FOREGROUND='green'
 POWERLEVEL9K_VCS_MODIFIED_FOREGROUND='yellow'
-
-POWERLEVEL9K_VCS_UNSTAGED_ICON='%F{008}!%F{008}'
-POWERLEVEL9K_VCS_STAGED_ICON=''
-#POWERLEVEL9K_VCS_GIT_BITBUCKET_ICON=''
-POWERLEVEL9K_VCS_GIT_HOOKS=()
-POWERLEVEL9K_SHOW_CHANGESET=false

@@ -2,6 +2,10 @@
 
 # set -eux
 
+# export HISTFILE="$HOME/.zsh_history"
+# export HISTSIZE=999999999
+# export SAVEHIST=$HISTSIZE
+
 export EDITOR="${EDITOR:-vi}"
 export DOTFILES="$HOME/.dotfiles"
 
@@ -10,9 +14,8 @@ alias cddot="cd $DOTFILES/zsh"
 alias cdot="cddot"
 alias dotfiles="nano $DOTFILES/zsh/.zshrc"
 
-export NO_RCS=""
 alias reload="unset NO_RCS && exec $SHELL -l"
-alias ohshit="env NO_RCS=1 exec $SHELL -l"
+alias ohshit="NO_RCS=1 exec $SHELL -l"
 function dot { dotfiles }
 [[ ! -z "$NO_RCS" ]] && return
 

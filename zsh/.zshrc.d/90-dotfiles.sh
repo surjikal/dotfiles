@@ -21,20 +21,25 @@ function _list_slugs {
 
 function dot {
     local query="$1"
-    # no arguments: run 'dotfiles' command
+    # No arguments: open dotfiles in editor
     if [[ -z "$query" ]] then;
+        [[ ! -t 1 ]] && echo "$DOTFILES" && return 0
         dotfiles;
+    # dot brew
     elif [[ "$query" == br* ]]; then
+        [[ ! -t 1 ]] && echo "$BREWFILE" && return 0
         $EDITOR "$BREWFILE"
-        sort "$BREWFILE" -o "$BREWFILE"
+        # sort "$BREWFILE" -o "$BREWFILE"
         >&2 echo -n "${fg[green]}update using:${fg[default]}\nbrew bundle ${BREWFILE}\n"
+    # dot [query]: tries to match the query against an existing file
     else
         result=$(_list_files "$query" | head -n1)
         if [[ -f "$result" ]]; then
+            [[ ! -t 1 ]] && echo "$result" && return 0
             >&2 echo "${fg[yellow]}edited:${fg[default]} $result"
             $EDITOR "$result"
         else;
-            >&2 echo "${fg[red]}error:${fg[default]} could not find ${fg[cyan]}${query}${fg[default]}"
+            [[ -t 1 ]] && >&2 echo "${fg[red]}error:${fg[default]} could not find ${fg[cyan]}${query}${fg[default]}"
             return 1
         fi
     fi
@@ -46,7 +51,6 @@ function dot {
 compdef _dot dot
 function _dot {
     local _slugs="$(_list_slugs)"
-    echo $_slugs
     local _extras="brew"
     _arguments -C \
         "1: :($_extras $_slugs)" \

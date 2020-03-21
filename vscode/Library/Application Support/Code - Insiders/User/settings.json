@@ -2,51 +2,82 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "editor.suggestSelection": "first",
+    "editor.snippetSuggestions": "none",
     "search.useIgnoreFiles": false,
+    "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
     "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.visible": 0,
     "window.restoreWindows": "one",
+    "workbench.editor.limit.value": 50,
     "liveshare.guestApprovalRequired": true,
     "liveshare.presence": true,
-    "files.useExperimentalFileWatcher": true,
+    "files.associations": {
+        "*.xml": "xml",
+        "*.gitconfig": "ini"
+    },
     // General
     "files.trimTrailingWhitespace": true,
+    // JS / TS
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.formatOnSave": true,
+    },
+    "[jsonc]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features"
+    },
     // Python
+    "python.pipenvPath": "/usr/local/bin/pipenv",
     "python.analysis.memory.keepLibraryAst": true,
     "python.analysis.memory.keepLibraryLocalVariables": true,
     "python.analysis.openFilesOnly": false,
     "python.insidersChannel": "daily",
     "python.dataScience.sendSelectionToInteractiveWindow": false,
+    "python.autoComplete.addBrackets": true,
+    "python.jediEnabled": false,
     "python.pydev.forcedBuiltins": [
         "pyspark",
         "google",
         "google.auth",
         "google.auth.default"
     ],
-
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+    // Misc
+    "[yaml]": {
+        "editor.defaultFormatter": "redhat.vscode-yaml"
+    },
+    // Extensions
+    "edi-x12.telemetry.disabled": true,
     // Theme settings
-    "materialTheme.accent": "Blue",
-    "editor.minimap.enabled": false,
-    "window.zoomLevel": -2,
-    "editor.fontSize": 20,
-    "editor.fontLigatures": false,
-    "debug.console.fontSize": 14,
-    "editor.cursorStyle": "line-thin",
-    "workbench.colorTheme": "Base16 Tomorrow",
-    "material-icon-theme.folders.theme": "classic",
-    "workbench.editor.limit.enabled": true,
-    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "breadcrumbs.enabled": true,
     "breadcrumbs.icons": false,
-    "terminal.integrated.fontSize": 16,
-    "terminal.integrated.cursorStyle": "line",
+    "debug.console.fontSize": 14,
+    "editor.cursorStyle": "line-thin",
+    "editor.fontFamily": "Menlo, monospace",
+    "editor.fontLigatures": false,
+    "editor.fontSize": 20,
+    "editor.minimap.enabled": false,
+    "material-icon-theme.folders.theme": "classic",
+    "materialTheme.accent": "Blue",
     "scm.countBadge": "off",
-    "terminal.integrated.fontFamily": "Menlo, Monaco, monospace",
-    "editor.fontFamily": "Menlo, Monaco, monospace",
-
+    "terminal.integrated.cursorStyle": "line",
+    "terminal.integrated.fontFamily": "MesloLGS NF, Menlo, monospace",
+    "terminal.integrated.fontSize": 17,
+    "window.zoomLevel": -1,
+    "workbench.colorTheme": "Base16 Tomorrow",
+    "workbench.editor.limit.enabled": true,
+    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.colorCustomizations": {
-
         "activityBar.activeBorder": "#2979FF",
         "activityBar.activeFocusBorder": "#ff000000",
         "activityBar.background": "#1A1E2C",
@@ -55,16 +86,13 @@
         "activityBar.inactiveForeground": "#343d46",
         "activityBarBadge.background": "#2979FF",
         "activityBarBadge.foreground": "#00000000",
-
         "contrastActiveBorder": "#ff000000",
         "contrastBorder": "#22273900",
-
         // Breadcrumb (hidden)
         "breadcrumb.activeSelectionForeground": "#2979FF",
         "breadcrumb.background": "#16171900",
         "breadcrumb.focusForeground": "#afbcc900",
         "breadcrumb.foreground": "#67737e00",
-
         // Editor
         "editor.background": "#1A1E2C",
         "editor.findMatchBackground": "#2979FF70",
@@ -86,7 +114,7 @@
         "editorSuggestWidget.highlightForeground": "#2979FF",
         "editorWidget.border": "#2979FF",
         "editorWidget.resizeBorder": "#2979FF",
-
+        "editorGroup.border": "#222739",
         // Sidebar
         "list.activeSelectionBackground": "#222739",
         "list.activeSelectionForeground": "#2979FF",
@@ -97,7 +125,6 @@
         "list.inactiveFocusBackground": "#1A1E2C",
         "list.inactiveSelectionBackground": "#222739",
         "list.inactiveSelectionForeground": "#2979FF",
-
         "menu.selectionForeground": "#2979FF",
         "menubar.selectionForeground": "#2979FF",
         "notificationLink.foreground": "#2979FF",
@@ -105,22 +132,18 @@
         "panelTitle.activeBorder": "#2979FF",
         "pickerGroup.foreground": "#2979FF",
         "progressBar.background": "#2979FF",
-
         // Scrollbar
         "scrollbar.shadow": "#00000040",
         "scrollbarSlider.activeBackground": "#2979FF50",
         "scrollbarSlider.background": "#afbcc910",
         "scrollbarSlider.hoverBackground": "#00000000",
-
         "selection.background": "#2979FF",
         "settings.headerForeground": "#2979FF",
         "settings.modifiedItemIndicator": "#2979FF",
-
         "sideBar.background": "#1A1E2C",
         "sideBarSectionHeader.background": "#1A1E2C",
         "sideBarSectionHeader.border": "#1C1F2600",
         "sideBarSectionHeader.foreground": "#67737e",
-
         // Tabs
         "tab.activeBackground": "#1A1E2C",
         "tab.activeBorder": "#2979FF",
@@ -134,22 +157,19 @@
         "tab.unfocusedActiveModifiedBorder": "#FF0000",
         "tab.unfocusedHoverBorder": "#343d4640",
         "textLink.foreground": "#2979FF",
-
         "titleBar.activeBackground": "#1A1E2C",
         "titleBar.activeForeground": "#343d4600",
         "titleBar.border": "#22273910",
-
         "tree.indentGuidesStroke": "#1C1F26",
         "widget.shadow": "#FF000000",
-
         // "editor.findRangeHighlightBackground": "#ff0000",
         // "editor.findRangeHighlightBorder": "#ff0000",
         // "editor.symbolHighlightBackground": "#ff0000",
         // "editor.wordHighlightBackground": "#ff0000",
         // "sideBar.border": "#222739",
-
         // Terminal Colors
-        "terminal.foreground": "#ebebeb",
+        // "terminal.foreground": "#ebebeb",
+        "terminal.background": "#1A1E2C",
         "terminalCursor.background": "#ffffff",
         "terminalCursor.foreground": "#c9a8fa",
         "terminal.ansiBlack": "#272936",
@@ -185,34 +205,17 @@
             }
         ]
     },
-    "explorer.autoReveal": false,
-    "[typescript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
+    "terraform.indexing": {
+        "enabled": false,
+        "liveIndexing": false,
+        "delay": 500,
+        "exclude": [
+            ".terraform/**/*",
+            "**/.terraform/**/*"
+        ]
     },
-    "[javascript]": {
-        "editor.defaultFormatter": "vscode.typescript-language-features"
-    },
-    "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "terminal.integrated.shell.osx": "/bin/zsh",
-    "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    "[yaml]": {
-        "editor.defaultFormatter": "redhat.vscode-yaml"
-    },
-    // Extensions
-    "edi-x12.telemetry.disabled": true,
-    "editor.snippetSuggestions": "none",
-    "files.associations": {
-        "*.xml": "xml"
-    },
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
-    },
-    "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false,
-    "workbench.editor.limit.value": 50,
-    "hdinsight.disableOpenSurveyLink": true,
+    "terraform.languageServer": {
+        "enabled": true,
+        "args": []
+    }
 }

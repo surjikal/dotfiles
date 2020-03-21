@@ -1,29 +1,79 @@
-[user]
-    name = Nicolas Porter
-    email = porter.nicolas@gmail.com
-[gui]
-    commitmsgwidth = 120
-    tabsize = 4
-	fontdiff = -family Menlo -size 14 -weight normal -slant roman -underline 0 -overstrike 0
-	spellingdictionary = none
+
+[include]
+	path = ~/.gitconfig.d/secret.gitconfig
+
+
+[alias]
+	prune = fetch --prune
+
+	; Delete old stashes
+	stash-prune = reflog expire --expire-unreachable=120.days refs/stash
+
+	; Kinda like a stash...
+	; Add all updated or deleted files, creates commit called 'tmp'
+	tmp = "!f() { git add --update; git commit -m 'tmp'; }; f"
+	untmp = "!f() { git reset --soft HEAD~1; git reset; }; f"
+
+
+# Props to:
+# https://gist.github.com/tdd/470582
 [core]
-    editor = nano
+	editor = code-insiders --wait
+	pager = diff-so-fancy | less --tabs=4 -RFX
+	whitespace = -trailing-space
+	tool = vscode
+
+[difftool "vscode"]
+	cmd = code-insiders --wait --diff $LOCAL $REMOTE
+
 [help]
-    # Automatically correct and execute mistyped commands
-    autocorrect = 1
-[url "git@bitbucket.org:42debut/"]
-    insteadOf = "42:"
-[url "git@github.com:"]
-    insteadOf = "gh:"
-    pushInsteadOf = "github:"
-    pushInsteadOf = "git://github.com/"
-[url "git://github.com/"]
-    insteadOf = "github:"
-[url "git@gist.github.com:"]
-    insteadOf = "gst:"
-    pushInsteadOf = "gist:"
-    pushInsteadOf = "git://gist.github.com/"
-[url "git://gist.github.com/"]
-    insteadOf = "gist:"
+	; Automatically correct and execute mistyped commands
+	autocorrect = 1
+
 [submodule]
 	recurse = true
+
+[checkout]
+	defaultRemote = origin
+
+[url "git@github.com:"]
+	insteadOf = "gh:"
+	pushInsteadOf = "github:"
+	pushInsteadOf = "git://github.com/"
+
+[url "git://github.com/"]
+	insteadOf = "github:"
+
+[url "git@gist.github.com:"]
+	insteadOf = "gst:"
+	pushInsteadOf = "gist:"
+	pushInsteadOf = "git://gist.github.com/"
+
+[url "git://gist.github.com/"]
+	insteadOf = "gist:"
+
+
+[gui]
+	commitmsgwidth = 120
+	tabsize = 4
+	fontdiff = -family Menlo -size 14 -weight normal -slant roman -underline 0 -overstrike 0
+	spellingdictionary = none
+
+; Taken from:
+; https://github.com/so-fancy/diff-so-fancy
+[color]
+	ui = true
+
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+
+[color "diff"]
+	meta = 11
+	frag = magenta bold
+	commit = yellow bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

@@ -10,3 +10,6 @@ _secret.*
 .Trashes
 *.code-workspace
 *.pyc
+
+# Cache
+.cache

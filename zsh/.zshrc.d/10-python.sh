@@ -8,3 +8,6 @@ if is_installed pip; then
     function gpip()  { PIP_REQUIRE_VIRTUALENV="" pip "$@" }
     function gpip3() { PIP_REQUIRE_VIRTUALENV="" pip3 "$@" }
 fi
+
+# Seems to make 'pipenv shell' a lot faster
+export PIPENV_SHELL_FANCY=1
