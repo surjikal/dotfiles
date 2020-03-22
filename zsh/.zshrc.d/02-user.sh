@@ -17,8 +17,19 @@ fi
 
 alias sshconf="nano $HOME/.ssh/config"
 
+
+# Get a random open port:
+# https://unix.stackexchange.com/a/132524
+function random_port {
+    /usr/bin/python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()'
+}
+
 function serve {
-    python -m SimpleHTTPServer $@
+    local port=${1:-`random_port`}
+    # Using macOS python to avoid annoying security popup
+    /usr/bin/python -m SimpleHTTPServer $port &
+    open "http://localhost:$port"
+    fg
 }
 
 function routes {
