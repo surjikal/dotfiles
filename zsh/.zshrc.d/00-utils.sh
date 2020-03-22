@@ -5,6 +5,10 @@ function is_installed {
   command -v "$1" > /dev/null 2>&1
 }
 
+function is_vscode_terminal {
+  [[ $TERM_PROGRAM = 'vscode' ]]
+}
+
 function not {
   $($@) || return 0
   return 1
