@@ -18,6 +18,12 @@ fi
 alias sshconf="nano $HOME/.ssh/config"
 
 
+function notify {
+    local msg="\"$@\""
+    osascript -e "display notification $msg"
+}
+
+
 # Get a random open port:
 # https://unix.stackexchange.com/a/132524
 function random_port {
