@@ -58,6 +58,7 @@
 	tabsize = 4
 	fontdiff = -family Menlo -size 14 -weight normal -slant roman -underline 0 -overstrike 0
 	spellingdictionary = none
+	gcwarning = false
 
 ; Taken from:
 ; https://github.com/so-fancy/diff-so-fancy
