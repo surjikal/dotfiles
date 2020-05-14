@@ -10,6 +10,7 @@
     "explorer.openEditors.visible": 0,
     "window.restoreWindows": "one",
     "workbench.editor.limit.value": 50,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
     "liveshare.guestApprovalRequired": true,
     "liveshare.presence": true,
     "files.associations": {
@@ -34,6 +35,8 @@
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features"
     },
+    // OpenGL
+    "glsllint.glslangValidatorPath": "/usr/local/opt/glslang/bin",
     // Python
     "python.pipenvPath": "/usr/local/bin/pipenv",
     "python.analysis.memory.keepLibraryAst": true,
@@ -217,5 +220,7 @@
     "terraform.languageServer": {
         "enabled": true,
         "args": []
-    }
+    },
+    "javascript.updateImportsOnFileMove.enabled": "always",
+    "extensions.ignoreRecommendations": false
 }
