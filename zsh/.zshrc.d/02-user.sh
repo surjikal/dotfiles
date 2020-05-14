@@ -46,6 +46,12 @@ function sum {
     xargs | tr \  + | bc
 }
 
+function ramdisk {
+    local size_in_mb=${1:-4096}
+    local blocksize=$(( size_in_mb * 2048 ))
+    diskutil partitionDisk $(hdiutil attach -nomount ram://${blocksize}) 1 GPTFormat APFS 'ramdisk' '100%'
+}
+
 alias map="xargs -n1"
 alias matrix="cmatrix"
 alias untar="tar xf"
