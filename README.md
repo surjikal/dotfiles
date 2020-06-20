@@ -35,15 +35,17 @@ exec zsh -l
 | `ohshit`     | escape hatch if shell is broken                  |
 
 
-## Sample built-ins
+## Sample built-in aliases / functions
 
-| command      | description                                      |
-|--------------|--------------------------------------------------|
-| `ramdisk`    | mount 8GB RAM volume                             |
-| `gg`         | `git gui`                                        |
-| `gk`         | `gitk --all`                                     |
-| `gf`         | `git fetch --all`                                |
-
+| command          | description                                      |
+|------------------|--------------------------------------------------|
+| `ramdisk <size>` | mount RAM volume (defaults to 8GB)               |
+| `serve <port>`   | serve current dir (defaults to random port)      |
+| `vpn_start`      | starts your vpn                                  |
+| `ssh_tunnel`     | `ssh_tunnel <src> <dest> <host>`                 |
+| `gg`             | `git gui`                                        |
+| `gk`             | `gitk --all`                                     |
+| `gf`             | `git fetch --all`                                |
 
 ## stow
 
