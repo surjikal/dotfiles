@@ -28,5 +28,5 @@ cat <<EOF > $SPARK_ENV
 
 HADOOP_HOME=$HADOOP_HOME
 HADOOP_CONF_DIR=$HADOOP_CONF_DIR
-JAVA_HOME="\$(/usr/libexec/java_home -v 1.8)"
+JAVA_HOME="\$(/usr/libexec/java_home -v11)"
 EOF
