@@ -2,6 +2,17 @@
 
 ![screenshot](screenshot.png)
 
+## What is this?
+
+This is a framework to manage your dotfiles. It is configured the way I like it.
+You should extend / edit this however you like.
+
+## Features
+
+- `dot`: a bunch of built-in dotfiles [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/tree/master/zsh/.zshrc.d)
+- `dot theme`: minimal [powerlevel10k](https://github.com/romkatv/powerlevel10k_) theme
+- `dot plugins`: [ohmyzsh](https://ohmyz.sh) & [antibody](https://getantibody.github.io) plugins
+- `dot stow`: [stow](https://www.gnu.org/software/stow) support. See more info below.
 
 ## Installation
 
@@ -23,7 +34,8 @@ exec zsh -l
 | `reload`     | reload the shell                                 |
 | `ohshit`     | escape hatch if shell is broken                  |
 
-### Some built-in commands
+
+## Sample built-ins
 
 | command      | description                                      |
 |--------------|--------------------------------------------------|
@@ -33,15 +45,7 @@ exec zsh -l
 | `gf`         | `git fetch --all`                                |
 
 
-## Features
-
-- [ohmyzsh](https://ohmyz.sh) for theming / plugins
-- [antibody](https://getantibody.github.io) for plugins
-- [stow](https://www.gnu.org/software/stow) support. See more info below.
-- add new dotfiles here [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/tree/master/zsh/.zshrc.d)
-- edit dotfiles with `dot` command (tab completion supported)
-
-### stow
+## stow
 
 [Stow](https://www.gnu.org/software/stow) will symlink the contents of a directory into your home directory.
 
