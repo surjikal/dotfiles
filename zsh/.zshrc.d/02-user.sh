@@ -1,44 +1,33 @@
 
 export DOCKER_BUILDKIT=1
-
-# Silence some OSX warning about TK being deprecated
-export TK_SILENCE_DEPRECATION=1
-export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
-
 # Unsure why this is needed...
 export PATH="/usr/local/sbin:$PATH"
 
-# Overrides
-extend_path "/Applications/CrossOver.app/Contents/SharedSupport/CrossOver/bin"
-
+# Replace cat with ccat
 is_installed ccat && alias cat="ccat"
 
+# Replace ls with exa
 if is_installed exa; then
     alias ll=""
     alias ls="exa"
     alias la="exa -lah"
+    alias l="exa -lah"
 fi
 
-alias sshconf="nano $HOME/.ssh/config"
-
-
-function qr-decode {
-  zbarimg $1
+# Create volume using RAM
+function ramdisk {
+    local size_in_mb=${1:-8192}
+    local blocksize=$(( size_in_mb * 2048 ))
+    diskutil partitionDisk $(hdiutil attach -nomount ram://${blocksize}) 1 GPTFormat APFS 'ramdisk' '100%'
 }
 
-
+# OSX Notification Popup
 function notify {
     local msg="\"$@\""
     osascript -e "display notification $msg"
 }
 
-
-# Get a random open port:
-# https://unix.stackexchange.com/a/132524
-function random_port {
-    /usr/bin/python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()'
-}
-
+# HTTP Server
 function serve {
     local port=${1:-`random_port`}
     # Using macOS python to avoid annoying security popup
@@ -47,23 +36,29 @@ function serve {
     fg
 }
 
+# Get a random open port:
+# https://unix.stackexchange.com/a/132524
+function random_port {
+    /usr/bin/python -c 'import socket; s=socket.socket(); s.bind(("", 0)); print(s.getsockname()[1]); s.close()'
+}
+
 function routes {
     netstat -nr
+}
+
+# Random
+
+function qr-decode {
+  zbarimg $1
 }
 
 function sum {
     xargs | tr \  + | bc
 }
 
-function ramdisk {
-    local size_in_mb=${1:-8192}
-    local blocksize=$(( size_in_mb * 2048 ))
-    diskutil partitionDisk $(hdiutil attach -nomount ram://${blocksize}) 1 GPTFormat APFS 'ramdisk' '100%'
-}
-
 alias map="xargs -n1"
-alias matrix="cmatrix"
 alias untar="tar xf"
+alias matrix="cmatrix"
 
 # https://github.com/mathiasbynens/dotfiles/blob/master/.aliases
 alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"

@@ -14,3 +14,5 @@ function ssh_tunnel {
   fi
   ssh -N -T -L 0.0.0.0:${src}:localhost:${dst} ${host}
 }
+
+alias sshconf="nano $HOME/.ssh/config"
