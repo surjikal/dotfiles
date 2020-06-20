@@ -22,6 +22,11 @@ fi
 alias sshconf="nano $HOME/.ssh/config"
 
 
+function qr-decode {
+  zbarimg $1
+}
+
+
 function notify {
     local msg="\"$@\""
     osascript -e "display notification $msg"
