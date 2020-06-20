@@ -51,7 +51,7 @@ function sum {
 }
 
 function ramdisk {
-    local size_in_mb=${1:-4096}
+    local size_in_mb=${1:-8192}
     local blocksize=$(( size_in_mb * 2048 ))
     diskutil partitionDisk $(hdiutil attach -nomount ram://${blocksize}) 1 GPTFormat APFS 'ramdisk' '100%'
 }
