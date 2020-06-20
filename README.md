@@ -14,7 +14,7 @@ stow zsh
 exec zsh -l
 ```
 
-## Sample commands
+## Managing dotfiles
 
 | command      | description                                      |
 |--------------|--------------------------------------------------|
@@ -22,9 +22,15 @@ exec zsh -l
 | `dot <file>` | edit a specific dotfile, supports tab completion |
 | `reload`     | reload the shell                                 |
 | `ohshit`     | escape hatch if shell is broken                  |
+
+# Sample built-in commands
+
+| command      | description                                      |
+|--------------|--------------------------------------------------|
 | `ramdisk`    | mount 8GB RAM volume                             |
-| `gg`         | git gui                                          |
-| `gk`         | gitk (defaults to --all)                         |
+| `gg`         | `git gui`                                        |
+| `gk`         | `gitk --all`                                     |
+| `gf`         | `git fetch --all`                                |
 
 
 ## Features
@@ -35,14 +41,14 @@ exec zsh -l
 - add new dotfiles here [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/zsh/.zshrc.d)
 - edit dotfiles with `dot` command (tab completion supported)
 
-### `zsh`
+### zsh
 
-All scripts under [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/zsh/.zshrc.d) are loaded automatically
-and in order.
+Add / remove dotfiles here: [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/zsh/.zshrc.d)
+These scripts are loaded automatically and in-order.
 
-Edit plugins using `dot plugins`.
+Use `dot plugins` to edit zsh plugins
 
-### `stow`
+### stow
 
 [Stow](https://www.gnu.org/software/stow) will symlink the contents of a directory into your home directory.
 This helps manage things like app config files.
