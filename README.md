@@ -5,7 +5,7 @@
 
 ## Installation
 
-Install [brew](https://brew.sh/) first.
+Install [brew](https://brew.sh/) first. Then run:
 
 ```
 git clone https://github.com/surjikal/dotfiles.git ~/.dotfiles && cd $_
@@ -23,7 +23,7 @@ exec zsh -l
 | `reload`     | reload the shell                                 |
 | `ohshit`     | escape hatch if shell is broken                  |
 
-# Sample built-in commands
+### Some built-in commands
 
 | command      | description                                      |
 |--------------|--------------------------------------------------|
@@ -37,16 +37,9 @@ exec zsh -l
 
 - [ohmyzsh](https://ohmyz.sh) for theming / plugins
 - [antibody](https://getantibody.github.io) for plugins
-- [stow](https://www.gnu.org/software/stow) support
-- add new dotfiles here [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/zsh/.zshrc.d)
+- [stow](https://www.gnu.org/software/stow) support. See more info below.
+- add new dotfiles here [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/tree/master/zsh/.zshrc.d)
 - edit dotfiles with `dot` command (tab completion supported)
-
-### zsh
-
-Add / remove dotfiles here: [`zsh/.zshrc.d`](https://github.com/surjikal/dotfiles/zsh/.zshrc.d)
-These scripts are loaded automatically and in-order.
-
-Use `dot plugins` to edit zsh plugins
 
 ### stow
 
