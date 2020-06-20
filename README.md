@@ -44,14 +44,11 @@ exec zsh -l
 ### stow
 
 [Stow](https://www.gnu.org/software/stow) will symlink the contents of a directory into your home directory.
-This helps manage things like app config files.
 
 For example, there's a `nano` directory in this repo that contains a `.nanorc`.
 If you run `stow nano`, it will symlink `~/.dotfiles/nano/.nanorc` to `~/.nanorc`.
 
-The dotfiles allow you to specify which directories you want to automatically stow on startup.
-Run `dot stow` and edit the `STOWED` array.
-
+Run `dot stow` and edit the `STOWED` array to specify which dirs you want to stow on startup.
 
 ## Shoutouts to...
 
