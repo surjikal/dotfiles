@@ -1,6 +1,10 @@
 
 export DOCKER_BUILDKIT=1
 
+# Silence some OSX warning about TK being deprecated
+export TK_SILENCE_DEPRECATION=1
+export PATH="/usr/local/opt/tcl-tk/bin:$PATH"
+
 # Unsure why this is needed...
 export PATH="/usr/local/sbin:$PATH"
 
