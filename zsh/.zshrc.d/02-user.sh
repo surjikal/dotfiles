@@ -10,13 +10,6 @@ export PATH="$DOTFILES/bin:$PATH"
 # Replace cat with ccat
 is_installed ccat && alias cat="ccat"
 
-# Replace ls with exa
-if is_installed exa; then
-    alias ll=""
-    alias ls="exa"
-    alias la="exa -lah"
-    alias l="exa -lah"
-fi
 
 # Create volume using RAM
 function ramdisk {
