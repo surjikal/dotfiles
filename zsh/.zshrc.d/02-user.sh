@@ -3,6 +3,10 @@ export DOCKER_BUILDKIT=1
 # Unsure why this is needed...
 export PATH="/usr/local/sbin:$PATH"
 
+# Add 'bin' dir from dotfiles to path
+export PATH="$DOTFILES/bin:$PATH"
+
+
 # Replace cat with ccat
 is_installed ccat && alias cat="ccat"
 
