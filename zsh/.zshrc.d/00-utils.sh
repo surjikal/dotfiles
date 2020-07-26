@@ -9,6 +9,13 @@ function is_vscode_terminal {
   [[ $TERM_PROGRAM = 'vscode' ]]
 }
 
+function is_subdir {
+    local directory="$1"
+    local subdirectory="$2"
+    [ "${subdirectory##$directory}" != "$subdirectory" ] && return -1
+    return 0
+}
+
 function not {
   $($@) || return 0
   return 1
@@ -21,6 +28,25 @@ function extend_path {
 
 function warn {
   echo $fg[yellow]warning:$fg[default] $@
+}
+
+function file_name {
+  echo "${$(basename $1)%.*}"
+}
+
+function file_ext {
+  echo "${$(basename $1)##*.}"
+}
+
+function exec_retry {
+  local -r cmd=$1
+  for ((i = 0; i < 3; i++)); do
+    if eval "$cmd"; then
+      return 0
+    fi
+    sleep 5
+  done
+  return 1
 }
 
 # https://github.com/romkatv/powerlevel10k
