@@ -7,8 +7,8 @@ export PATH="/usr/local/sbin:$PATH"
 export PATH="$DOTFILES/bin:$PATH"
 
 
-# Replace cat with ccat
 is_installed ccat && alias cat="ccat"
+is_installed icdiff && alias diff="icdiff"
 
 
 # Create volume using RAM
