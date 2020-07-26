@@ -61,7 +61,16 @@ function dot {
 
         # query not found...
         else;
-            [[ -t 1 ]] && >&2 echo "${fg[red]}error:${fg[default]} could not find ${fg[cyan]}${query}${fg[default]}"
+            [[ -t 1 ]] && >&2 {
+                echo "${fg[red]}error:${fg[default]} could not find ${fg[cyan]}${query}${fg[default]}"
+                local filename="10-$query.sh"
+                echo "Create new dotfile ($filename)?"
+                read "response?y|[n]: "
+                echo $response
+                if [[ "$response" =~ ^[Yy]$ ]]; then
+                    _edit "$DOTFILES_SEARCH_PATH/$filename"
+                fi
+            }
             return 1
         fi
     fi
