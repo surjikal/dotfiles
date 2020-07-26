@@ -11,3 +11,4 @@ fi
 
 # Seems to make 'pipenv shell' a lot faster
 export PIPENV_SHELL_FANCY=1
+export PIPENV_VERBOSITY=-1
