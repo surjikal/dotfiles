@@ -11,11 +11,7 @@ export HADOOP_OPTS="$HADOOP_OPTS -Djava.library.path=/usr/local/hadoop/lib/"
 
 
 alias spark="PYSPARK_DRIVER_PYTHON=ipython pyspark";
-alias nb="
-PYSPARK_DRIVER_PYTHON=jupyter
-PYSPARK_DRIVER_PYTHON_OPTS=notebook
-pyspark
-"
+alias nb="env PYSPARK_DRIVER_PYTHON=jupyter PYSPARK_DRIVER_PYTHON_OPTS=notebook pyspark"
 
 export PYTHONPATH="${PYTHONPATH}:${SPARK_HOME}/python/"
 export PYTHONPATH="${PYTHONPATH}:$(find ${SPARK_HOME}/python/lib -name "py4j*" | head -n1)"
