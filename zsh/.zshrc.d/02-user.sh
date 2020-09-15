@@ -1,7 +1,7 @@
+#!/usr/bin/env zsh
 
 export DOCKER_BUILDKIT=1
-# Unsure why this is needed...
-export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/sbin:$PATH" # Unsure why this is needed...
 
 # Add 'bin' dir from dotfiles to path
 export PATH="$DOTFILES/bin:$PATH"
@@ -20,6 +20,7 @@ function ramdisk {
     local blocksize=$(( size_in_mb * 2048 ))
     diskutil partitionDisk $(hdiutil attach -nomount ram://${blocksize}) 1 GPTFormat APFS 'ramdisk' '100%'
 }
+
 
 # OSX Notification Popup
 function notify {
@@ -69,4 +70,5 @@ alias chrome="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome $@"
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
+alias now_unix="date +'%s'"
 alias now="date +'%Y-%m-%d %H:%M:%S %Z'"
