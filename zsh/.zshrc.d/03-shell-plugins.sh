@@ -21,12 +21,14 @@ is_installed fzf && antibody bundle robbyrussell/oh-my-zsh path:plugins/fzf
 # misc
 antibody bundle zsh-users/zsh-syntax-highlighting
 antibody bundle robbyrussell/oh-my-zsh path:plugins/command-not-found
+antibody bundle robbyrussell/oh-my-zsh path:plugins/node
 antibody bundle robbyrussell/oh-my-zsh path:plugins/github
 antibody bundle robbyrussell/oh-my-zsh path:plugins/httpie
 antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
 antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
 antibody bundle robbyrussell/oh-my-zsh path:plugins/aws
 antibody bundle robbyrussell/oh-my-zsh path:plugins/gcloud
+antibody bundle robbyrussell/oh-my-zsh path:plugins/pyenv
 
 # terraform
 autoload -U +X bashcompinit && bashcompinit
