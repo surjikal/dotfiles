@@ -59,6 +59,7 @@
 	fontdiff = -family Menlo -size 14 -weight normal -slant roman -underline 0 -overstrike 0
 	spellingdictionary = none
 	gcwarning = false
+	; usettk = 0
 
 ; Taken from:
 ; https://github.com/so-fancy/diff-so-fancy
