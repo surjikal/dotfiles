@@ -15,9 +15,9 @@ for f in `find "$DOTFILES" -name ".DS_Store"`; do
 done
 
 # Gitk just replaces the symlink with a file, so we fix that here
-gitk=$HOME/.config/git/gitk
-if [ ! -L $gitk ]; then
-    mv $gitk $DOTFILES/git/.config/git/gitk || true
+gitk="$HOME/.config/git/gitk"
+if [ ! -L "$gitk" ]; then
+    mv "$gitk" "$DOTFILES/git/.config/git/gitk" || true
 fi
 
 # Restow

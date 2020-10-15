@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 # Check if command is available...
 function is_installed {
@@ -17,6 +19,7 @@ function is_subdir {
 }
 
 function not {
+  # shellcheck disable=SC2091,SC2068
   $($@) || return 0
   return 1
 }
@@ -27,15 +30,16 @@ function extend_path {
 }
 
 function warn {
-  echo $fg[yellow]warning:$fg[default] $@
+  # shellcheck disable=SC2102,SC2154,SC2068,SC2086
+  echo ${fg[yellow]}warning:${fg[default]} $@
 }
 
 function file_name {
-  echo "${$(basename $1)%.*}"
+  echo "${$(basename "$1")%.*}"
 }
 
 function file_ext {
-  echo "${$(basename $1)##*.}"
+  echo "${$(basename "$1")##*.}"
 }
 
 function exec_retry {

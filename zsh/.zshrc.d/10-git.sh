@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 # gg - opens up git gui
 # gk - opens up gitk
@@ -55,11 +57,8 @@ function gk {
     cp $LIVE_GITK_CONFIG $CODE_GITK_CONFIG
 }
 
-
 # Fixes graphical issues with git-gui / gitk on macOS
-extend_path /usr/local/opt/tcl-tk
-
+extend_path /usr/local/opt/tcl-tk/bin
 
 # Silence some OSX warning about TK being deprecated
 export TK_SILENCE_DEPRECATION=1
-export PATH="/usr/local/opt/tcl-tk/bin:$PATH"

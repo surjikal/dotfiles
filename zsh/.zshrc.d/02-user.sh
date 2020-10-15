@@ -1,4 +1,5 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
 
 export DOCKER_BUILDKIT=1
 export PATH="/usr/local/sbin:$PATH" # Unsure why this is needed...
@@ -48,10 +49,6 @@ function routes {
 }
 
 # Random
-
-function qr-decode {
-  zbarimg $1
-}
 
 function sum {
     xargs | tr \  + | bc

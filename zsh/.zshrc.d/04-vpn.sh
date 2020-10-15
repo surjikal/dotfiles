@@ -1,4 +1,6 @@
-# #!/usr/bin/env zsh
+#!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 function __vpn_is_reachable() {
     local host="${1:-$VPN_TEST_HOST}"

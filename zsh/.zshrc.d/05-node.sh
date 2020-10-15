@@ -1,3 +1,7 @@
+#!/usr/bin/env zsh
+# shellcheck shell=bash
+
+
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history;
 

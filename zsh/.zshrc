@@ -1,23 +1,23 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
 
 # set -eux
-
-# export HISTFILE="$HOME/.zsh_history"
-# export HISTSIZE=999999999
-# export SAVEHIST=$HISTSIZE
 
 export EDITOR="${EDITOR:-vi}"
 export DOTFILES="$HOME/.dotfiles"
 
 # Emergency aliases / commands
-alias cddot="cd $DOTFILES/zsh"
 alias cdot="cddot"
-alias dotfiles="nano $DOTFILES/zsh/.zshrc"
+alias cddot='cd "$DOTFILES/zsh"'
+alias dotfiles='nano "$DOTFILES/zsh/.zshrc"'
 
-alias reload="unset NO_RCS && exec $SHELL -l"
-alias ohshit="NO_RCS=1 exec $SHELL -l"
-function dot { dotfiles }
-[[ ! -z "$NO_RCS" ]] && return
+alias reload='unset NO_RCS && exec $SHELL -l'
+alias ohshit='NO_RCS=1 exec $SHELL -l'
+function dot {
+    dotfiles
+}
+
+[[ -n "$NO_RCS" ]] && return
 
 autoload -U colors; colors
 

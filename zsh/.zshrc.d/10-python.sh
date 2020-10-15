@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 is_installed pipx  && export PATH="$HOME/.local/bin:$PATH"
 is_installed pyenv && eval "$(pyenv init -)"

@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 if not is_installed antibody; then
     warn "${fg[cyan]}antibody${fg[default]} not installed"

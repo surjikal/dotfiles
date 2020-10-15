@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 not is_installed grc && return
 [[ "$TERM" == dumb ]] && return

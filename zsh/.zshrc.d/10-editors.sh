@@ -1,3 +1,6 @@
+#!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 # parent_process_name=$(ps -o comm= $PPID)
 # if [[ "$TERM_PROGRAM" != vscode ]]; then

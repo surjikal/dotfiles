@@ -61,3 +61,4 @@ Run `dot stow` and edit the `STOWED` array to specify which dirs you want to sto
 - [Mathias Bynens](https://mathiasbynens.be/)
 - [Brandon LeBlanc](https://github.com/demosdemon)
 - [draculatheme.com/gitk](https://draculatheme.com/gitk)
+- [Amir Salihefendic](https://github.com/amix/vimrc)

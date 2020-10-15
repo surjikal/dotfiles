@@ -1,4 +1,6 @@
 #!/usr/bin/env zsh
+# shellcheck shell=bash
+
 
 if is_installed code-insiders; then
     alias code="code-insiders"
@@ -78,6 +80,9 @@ function dot {
     return 0
 }
 
+function dotgg {
+    cd $DOTFILES && gg
+}
 
 # Tab completion for 'dot' command
 compdef __dot_completions dot
