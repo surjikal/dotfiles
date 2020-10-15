@@ -1,1 +1,5 @@
 git/.config/git/gitk
+zsh/_test
+
+\.git
+\.gitignore
