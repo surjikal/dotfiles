@@ -1,0 +1,8 @@
+# macOS
+.DS_STORE
+
+# NodeJS
+node_modules/
+
+# Python
+*.pyc
