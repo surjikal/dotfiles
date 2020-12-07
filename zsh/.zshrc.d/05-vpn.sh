@@ -1,6 +1,6 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
-
+# shellcheck disable=SC2120
 
 function __vpn_is_reachable() {
     local host="${1:-$VPN_TEST_HOST}"
@@ -19,7 +19,8 @@ function __vpn_is_reachable() {
 
 function __vpn_is_connected() {
     local vpn="${1:-$VPN_NAME}"
-    local vpn_status=$(networksetup -showpppoestatus "$vpn")
+    local vpn_status
+    vpn_status=$(networksetup -showpppoestatus "$vpn")
     [[ "$vpn_status" != "connected" ]] && return 1
     return 0
 }
@@ -41,7 +42,7 @@ function vpn_start() {
     while [ $i -le 100 ]; do
         vpn_active "$vpn" && break
         sleep 0.42
-        i=$(($i + 1))
+        i=$((i + 1))
     done
 }
 
@@ -51,8 +52,8 @@ function vpn_stop() {
 }
 
 function vpn_ssh_wrapper {
-  $(vpn_active $1) || vpn_start
-  ssh $@
+  vpn_active "$1" || vpn_start
+  ssh "$@"
 }
 
 alias vs="vpn_start"
