@@ -1,49 +1,17 @@
 #!/usr/bin/env zsh
-
-
-# Some of these taken here...
-# https://coderwall.com/p/pn8f0g/show-your-git-status-and-branch-in-color-at-the-command-prompt
-
-
-git_stats() {
-  if git rev-parse --show-toplevel > /dev/null 2>&1
-  then
-    setopt local_options BASH_REMATCH
-    local total_insertions=0
-    local total_deletions=0
-
-    local data=$(git diff --shortstat --cached; git diff --shortstat)
-
-    echo $data | while read value; do
-      if [[ ${value} =~ "([[:digit:]]+) insertions.* ([[:digit:]]+) deletions" ]]; then
-        (( total_insertions = total_insertions + ${BASH_REMATCH[2]:-0} ))
-        (( total_deletions  = total_deletions  + ${BASH_REMATCH[3]:-0} ))
-      fi
-    done
-
-    [[ $total_insertions -eq 0 ]] && total_insertions="" || total_insertions="%F{yellow}+$total_insertions%F{clear}"
-    [[ $total_deletions  -eq 0 ]] && total_deletions=""  || total_deletions="%F{red}-$total_deletions%F{clear}"
-
-    echo "$total_insertions $total_deletions"
-  fi
-}
-
-custom_git_stats() {
-  echo "$(git_stats)"
-}
-
-icons=()
-
+# shellcheck shell=bash
+# shellcheck disable=SC2034
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
-  # user_joined
-  # host_joined
-  dir_joined
-  vcs_joined
-  custom_git_stats_joined
+  dir
+  custom_pyenv_joined
+  custom_git_branch_joined
 )
 
+POWERLEVEL9K_DISABLE_RPROMPT=true
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 
+icons=()
 POWERLEVEL9K_MODE='nerdfont-complete'
 
 typeset -g POWERLEVEL9K_VCS_{GIT,GITHUB,BITBUCKET}_ICON=""
@@ -55,11 +23,9 @@ POWERLEVEL9K_VCS_UNSTAGED_ICON="\b"
 POWERLEVEL9K_VCS_GIT_HOOKS=()
 POWERLEVEL9K_SHOW_CHANGESET=false
 
-POWERLEVEL9K_CUSTOM_GIT_STATS="custom_git_stats"
-POWERLEVEL9K_CUSTOM_GIT_STATS_ICON=""
-POWERLEVEL9K_CUSTOM_GIT_STATS_SEGMENT_ICON=""
-POWERLEVEL9K_CUSTOM_GIT_STATS_BACKGROUND="clear"
-POWERLEVEL9K_CUSTOM_GIT_STATS_FOREGROUND="008"
+POWERLEVEL9K_VIRTUALENV_PYTHON_ICON=
+POWERLEVEL9K_VIRTUALENV_BACKGROUND='clear'
+POWERLEVEL9K_VIRTUALENV_FOREGROUND='008'
 
 POWERLEVEL9K_HOST_FOREGROUND="grey"
 POWERLEVEL9K_HOST_BACKGROUND="clear"
@@ -80,6 +46,7 @@ POWERLEVEL9K_DIR_HOME_SUBFOLDER_FOREGROUND="012"
 POWERLEVEL9K_DIR_PATH_SEPARATOR="%F{008}/%F{cyan}"
 
 POWERLEVEL9K_LEFT_SEGMENT_SEPARATOR=''
+POWERLEVEL9K_RIGHT_SEGMENT_SEPARATOR=''
 
 POWERLEVEL9K_HOME_ICON=""
 POWERLEVEL9K_HOME_SUB_ICON=""
@@ -111,7 +78,6 @@ POWERLEVEL9K_OS_ICON_FOREGROUND='cyan'
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_PROMPT_ON_NEWLINE=true
 
-POWERLEVEL9K_DISABLE_RPROMPT=true
 
 typeset -g POWERLEVEL9K_STATUS_{,OK_,ERROR_}BACKGROUND="clear"
 POWERLEVEL9K_STATUS_ERROR_FOREGROUND="001"
