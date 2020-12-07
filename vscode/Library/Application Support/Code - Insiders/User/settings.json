@@ -2,7 +2,7 @@
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
     "editor.suggestSelection": "first",
-    "editor.snippetSuggestions": "none",
+    "editor.snippetSuggestions": "bottom",
     "search.useIgnoreFiles": false,
     "explorer.autoReveal": false,
     "explorer.confirmDelete": false,
