@@ -30,25 +30,27 @@ antibody bundle robbyrussell/oh-my-zsh path:plugins/docker
 antibody bundle robbyrussell/oh-my-zsh path:plugins/brew
 antibody bundle robbyrussell/oh-my-zsh path:plugins/aws
 antibody bundle robbyrussell/oh-my-zsh path:plugins/gcloud
-antibody bundle robbyrussell/oh-my-zsh path:plugins/pyenv
 
 # terraform
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C /usr/local/bin/terraform terraform
 
 # python
+antibody bundle robbyrussell/oh-my-zsh path:plugins/pyenv
 antibody bundle robbyrussell/oh-my-zsh path:plugins/pipenv
 
 # node
 export NVM_AUTO_USE=true
 export NVM_LAZY_LOAD=true
 antibody bundle lukechilds/zsh-nvm
+antibody bundle favware/zsh-lerna
 antibody bundle lukechilds/zsh-better-npm-completion
 
 # ssh-agent
 (   zstyle :omz:plugins:ssh-agent agent-forwarding on
     antibody bundle robbyrussell/oh-my-zsh path:plugins/ssh-agent
-) > /dev/null
+    eval "$(ssh-agent -s)"
+) &>/dev/null
 
 # gpg-agent
 # antibody bundle robbyrussell/oh-my-zsh path:plugins/gpg-agent
