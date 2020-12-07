@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
-export DOCKER_BUILDKIT=1
 export PATH="/usr/local/sbin:$PATH" # Unsure why this is needed...
 
 # Add 'bin' dir from dotfiles to path
