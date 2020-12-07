@@ -79,12 +79,12 @@
         "when": "editorHasRenameProvider && editorTextFocus && !editorReadonly"
     },
     {
-        "key": "shift+alt+r",
+        "key": "",
         "command": "workbench.action.debug.start",
         "when": "!inDebugMode"
     },
     {
-        "key": "f5",
+        "key": "",
         "command": "-workbench.action.debug.start",
         "when": "!inDebugMode"
     },
@@ -101,5 +101,10 @@
         "key": "ctrl+shift+/",
         "command": "-extension.coffeescript-preview",
         "when": "editorTextFocus && editorLangId == 'coffeescript'"
+    },
+    {
+        "key": "",
+        "command": "-workbench.action.terminal.openNativeConsole",
+        "when": "!terminalFocus"
     }
 ]
