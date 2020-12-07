@@ -18,19 +18,23 @@ function ramdisk {
     # Otherwise create it
     local size_in_mb=${1:-8192}
     local blocksize=$(( size_in_mb * 2048 ))
-    diskutil partitionDisk $(hdiutil attach -nomount ram://${blocksize}) 1 GPTFormat APFS 'ramdisk' '100%'
+    diskutil partitionDisk "$(hdiutil attach -nomount ram://${blocksize})" 1 GPTFormat APFS 'ramdisk' '100%'
 }
 
+function cdram {
+    ramdisk "$@"
+    cd /Volumes/ramdisk || exit 1
+}
 
 # OSX Notification Popup
 function notify {
-    local msg="\"$@\""
-    osascript -e "display notification $msg"
+    osascript -e "display notification \"$*\""
 }
+
 
 # HTTP Server
 function serve {
-    local port=${1:-`random_port`}
+    local port=${1:-$(random_port)}
     # Using macOS python to avoid annoying security popup
     /usr/bin/python -m SimpleHTTPServer $port &
     open "http://localhost:$port"
@@ -45,6 +49,10 @@ function random_port {
 
 function routes {
     netstat -nr
+}
+
+function route-add {
+    sudo route -n add -net "$@"
 }
 
 # Random
