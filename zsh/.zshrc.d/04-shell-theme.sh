@@ -4,7 +4,8 @@
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   dir
-  custom_pyenv_joined
+  virtualenv_joined
+  # custom_pyenv_joined
   custom_git_branch_joined
 )
 

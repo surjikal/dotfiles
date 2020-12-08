@@ -1,8 +1,10 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
+# shellcheck disable=SC1090
 
 
 if not is_installed antibody; then
+    # shellcheck disable=SC2154
     warn "${fg[cyan]}antibody${fg[default]} not installed"
     return
 fi
@@ -14,7 +16,9 @@ if [[ -r "$PL10K_INSTANT_PROMPT_SCRIPT" ]]; then source "$PL10K_INSTANT_PROMPT_S
 antibody bundle romkatv/powerlevel10k
 
 # oh-my-zsh
-export ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+export ZSH
+
 antibody bundle robbyrussell/oh-my-zsh
 
 # history / fzf
@@ -37,6 +41,7 @@ complete -o nospace -C /usr/local/bin/terraform terraform
 
 # python
 antibody bundle robbyrussell/oh-my-zsh path:plugins/pyenv
+antibody bundle robbyrussell/oh-my-zsh path:plugins/virtualenv
 antibody bundle robbyrussell/oh-my-zsh path:plugins/pipenv
 
 # node
