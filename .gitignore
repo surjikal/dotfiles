@@ -4,6 +4,12 @@
 secret.*
 _secret.*
 
+ssh/.ssh/*
+!ssh/.ssh/config
+ssh/.ssh/config.d/*
+!ssh/.ssh/config.d
+!ssh/.ssh/config.d/.gitkeep
+
 # Turds
 .DS_Store
 .Spotlight-V100
