@@ -28,24 +28,23 @@ exec zsh -l
 ## Managing dotfiles
 
 | command      | description                                      |
-|--------------|--------------------------------------------------|
+| ------------ | ------------------------------------------------ |
 | `dot`        | edit dotfiles in vscode                          |
 | `dot <file>` | edit a specific dotfile, supports tab completion |
 | `reload`     | reload the shell                                 |
 | `ohshit`     | escape hatch if shell is broken                  |
 
-
 ## Sample built-in aliases / functions
 
-| command          | description                                      |
-|------------------|--------------------------------------------------|
-| `ramdisk <size>` | mount RAM volume (defaults to 8GB)               |
-| `serve <port>`   | serve current dir (defaults to random port)      |
-| `vpn_start`      | starts your vpn                                  |
-| `ssh_tunnel`     | `ssh_tunnel <src> <dest> <host>`                 |
-| `gg`             | `git gui`                                        |
-| `gk`             | `gitk --all`                                     |
-| `gf`             | `git fetch --all`                                |
+| command          | description                                 |
+| ---------------- | ------------------------------------------- |
+| `ramdisk <size>` | mount RAM volume (defaults to 8GB)          |
+| `serve <port>`   | serve current dir (defaults to random port) |
+| `vpn_start`      | starts your vpn                             |
+| `ssh_tunnel`     | `ssh_tunnel <src> <dest> <host>`            |
+| `gg`             | `git gui`                                   |
+| `gk`             | `gitk --all`                                |
+| `gf`             | `git fetch --all`                           |
 
 ## stow
 
@@ -55,6 +54,10 @@ For example, there's a `nano` directory in this repo that contains a `.nanorc`.
 If you run `stow nano`, it will symlink `~/.dotfiles/nano/.nanorc` to `~/.nanorc`.
 
 Run `dot stow` and edit the `STOWED` array to specify which dirs you want to stow on startup.
+
+## Links
+
+- https://thorsten-hans.com/5-types-of-zsh-aliases#suffix-aliases
 
 ## Shoutouts to...
 
