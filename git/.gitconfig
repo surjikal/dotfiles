@@ -34,7 +34,7 @@
 	autocorrect = 1
 
 [submodule]
-	recurse = true
+	recurse = false
 
 [checkout]
 	defaultRemote = origin
@@ -55,14 +55,14 @@
 [url "git://gist.github.com/"]
 	insteadOf = "gist:"
 
-
 [gui]
-	commitmsgwidth = 120
 	tabsize = 4
 	fontdiff = -family Menlo -size 14 -weight normal -slant roman -underline 0 -overstrike 0
 	spellingdictionary = none
 	gcwarning = false
-	; usettk = 0
+	usettk = 1
+	fontui = -family .AppleSystemUIFont -size 14 -weight normal -slant roman -underline 0 -overstrike 0
+	pruneduringfetch = true
 
 ; Taken from:
 ; https://github.com/so-fancy/diff-so-fancy
@@ -82,3 +82,11 @@
 	old = red bold
 	new = green bold
 	whitespace = red reverse
+
+[rerere]
+	enabled = true
+
+[pull]
+	ff = only
+[init]
+	defaultBranch = master
