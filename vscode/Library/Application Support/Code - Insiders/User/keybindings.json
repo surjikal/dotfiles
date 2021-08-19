@@ -106,5 +106,14 @@
         "key": "",
         "command": "-workbench.action.terminal.openNativeConsole",
         "when": "!terminalFocus"
+    },
+    {
+        "key": "cmd+enter",
+        "command": "sqltools.executeQuery",
+        "when": "editorTextFocus && resourceExtname == .sql"
+    },
+    {
+        "key": "cmd+4",
+        "command": "workbench.action.files.saveWithoutFormatting"
     }
 ]

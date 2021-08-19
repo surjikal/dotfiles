@@ -1,6 +1,7 @@
 {
     "files.insertFinalNewline": true,
     "files.trimFinalNewlines": true,
+    "files.trimTrailingWhitespace": true,
     "editor.suggestSelection": "first",
     "editor.snippetSuggestions": "bottom",
     "search.useIgnoreFiles": false,
@@ -11,73 +12,137 @@
     "window.restoreWindows": "one",
     "workbench.editor.limit.value": 50,
     "workbench.editor.enablePreviewFromQuickOpen": false,
-    "liveshare.guestApprovalRequired": true,
-    "liveshare.presence": true,
+    "vscode-kubernetes.minikube-path.mac": "",
+
+    // General
     "files.associations": {
         "*.xml": "xml",
-        "*.gitconfig": "ini"
+        "*.gitconfig": "ini",
+        "*.txt": "plaintext",
+        "*.yaml.enc": "yaml"
     },
-    // General
-    "files.trimTrailingWhitespace": true,
+    "task.saveBeforeRun": "never",
+    "debug.javascript.codelens.npmScripts": "never",
+    "debug.javascript.usePreview": false,
+    "debug.saveBeforeStart": "none",
+    "debug.javascript.automaticallyTunnelRemoteServer": false,
+    "security.workspace.trust.untrustedFiles": "open",
+
     // JS / TS
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
         "editor.formatOnSave": true,
     },
-    "typescript.updateImportsOnFileMove.enabled": "always",
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "javascript.format.semicolons": "insert",
+    "typescript.suggest.completeFunctionCalls": true,
+    "typescript.tsserver.maxTsServerMemory": 30000,
+    "typescript.disableAutomaticTypeAcquisition": true,
+    "typescript.tsserver.useSeparateSyntaxServer": true,
+    "tslint.jsEnable": true,
+    "typescript.tsserver.log": "off",
+    "typescript.check.npmIsInstalled": false,
+    "javascript.updateImportsOnFileMove.enabled": "always",
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
+        "editor.formatOnSave": true
     },
     "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": false
     },
     "[json]": {
-        "editor.defaultFormatter": "vscode.json-language-features"
-    },
-    // OpenGL
-    "glsllint.glslangValidatorPath": "/usr/local/opt/glslang/bin",
-    // Python
-    "python.pipenvPath": "/usr/local/bin/pipenv",
-    "python.analysis.memory.keepLibraryAst": true,
-    "python.analysis.memory.keepLibraryLocalVariables": true,
-    "python.analysis.openFilesOnly": false,
-    "python.insidersChannel": "daily",
-    "python.dataScience.sendSelectionToInteractiveWindow": false,
-    "python.autoComplete.addBrackets": true,
-    "python.jediEnabled": false,
-    "python.pydev.forcedBuiltins": [
-        "pyspark",
-        "google",
-        "google.auth",
-        "google.auth.default"
-    ],
-    "[python]": {
-        "editor.defaultFormatter": "ms-python.python"
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.formatOnSave": false
     },
     // Misc
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
     },
+    "[css]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[scss]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "[graphql]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "rvest.vs-code-prettier-eslint"
+    },
+    "terraform.languageServer": {
+        "external": false,
+        "args": [
+            "serve"
+        ]
+    },
+
+
+    // Python
+    "python.analysis.memory.keepLibraryAst": true,
+    "python.insidersChannel": "daily",
+    "python.autoComplete.addBrackets": true,
+    "python.jediMemoryLimit": -1,
+    "python.analysis.completeFunctionParens": true,
+    "python.languageServer": "Pylance",
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.python"
+    },
+
+    // Jupyter (trying to disable it)
+    "jupyter.sendSelectionToInteractiveWindow": false,
+    "jupyter.disableJupyterAutoStart": true,
+    "jupyter.jupyterLaunchTimeout": 1,
+    "notebook.cellToolbarLocation": {
+        "default": "right",
+        "jupyter-notebook": "left"
+    },
+
+    "workbench.editorAssociations": {
+        "*.ipynb": "jupyter-notebook",
+        "git-rebase-todo": "default" // disable gitlens association
+    },
+
     // Extensions
+    "sops.beta": true,
     "edi-x12.telemetry.disabled": true,
-    // Theme settings
-    "breadcrumbs.enabled": true,
-    "breadcrumbs.icons": false,
-    "debug.console.fontSize": 14,
+    "tctoolbox.core": {
+        "ssoActiveTokenUri": "",
+        "ssoClientId": ""
+    },
+    "tctoolbox.x12": {
+        "eppServiceUri": ""
+    },
+
+    // Gitlens
+    "gitlens.currentLine.enabled": false,
+    "gitlens.codeLens.enabled": false,
+    "gitlens.advanced.similarityThreshold": 60,
+    "gitlens.blame.ignoreWhitespace": true,
+
+    // Editor Settings
     "editor.cursorStyle": "line-thin",
     "editor.fontFamily": "Menlo, monospace",
     "editor.fontLigatures": false,
     "editor.fontSize": 20,
     "editor.minimap.enabled": false,
+    "editor.folding": false,
+    "editor.renderControlCharacters": true,
+
+    // Theme settings
+    "breadcrumbs.enabled": true,
+    "breadcrumbs.icons": false,
+    "debug.console.fontSize": 14,
     "material-icon-theme.folders.theme": "classic",
     "materialTheme.accent": "Blue",
     "scm.countBadge": "off",
+    "workbench.colorTheme": "Base16 Tomorrow",
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.fontFamily": "MesloLGS NF, Menlo, monospace",
     "terminal.integrated.fontSize": 17,
-    "window.zoomLevel": -1,
-    "workbench.colorTheme": "Base16 Tomorrow",
     "workbench.editor.limit.enabled": true,
     "workbench.startupEditor": "welcomePageInEmptyWorkbench",
     "workbench.colorCustomizations": {
@@ -228,22 +293,39 @@
             }
         ]
     },
-    "terraform.indexing": {
-        "enabled": false,
-        "liveIndexing": false,
-        "delay": 500,
-        "exclude": [
-            ".terraform/**/*",
-            "**/.terraform/**/*"
-        ]
-    },
-    "terraform.languageServer": {
-        "enabled": true,
-        "args": []
-    },
-    "javascript.updateImportsOnFileMove.enabled": "always",
+
+    "workbench.activityBar.visible": true,
     "extensions.ignoreRecommendations": false,
-    "workbench.editorAssociations": {
-        "git-rebase-todo": "default"
-    }
+    "search.quickOpen.includeHistory": false,
+    // "search.sortOrder": "fileNames",
+    "explorer.compactFolders": false,
+    "editor.inlineSuggest.enabled": true,
+    "timeline.excludeSources": [
+        "git-history"
+    ],
+
+    // Trying to disable
+    "vs-kubernetes": {
+        "vs-kubernetes.minikube-path.mac": "xxxxxxxxxxxxxxxxxx"
+    },
+    // Trying to disable
+    "remote.containers.dockerPath": "xxxxxxxxxxxxxxxxxx",
+
+    "redhat.telemetry.enabled": false,
+    "sqltools.useNodeRuntime": true,
+    "sqltools.connections": [],
+
+    "github.copilot.enable": {
+        "*": false,
+        "yaml": true,
+        "plaintext": false,
+        "markdown": false,
+        "typescript": true,
+        "terraform": true,
+        "coffeescript": true,
+        "shellscript": true,
+        "python": true,
+        "applescript": true
+    },
+    "window.zoomLevel": -1
 }
