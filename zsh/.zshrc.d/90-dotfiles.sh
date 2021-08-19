@@ -1,14 +1,6 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
-
-if is_installed code-insiders; then
-    alias code="code-insiders"
-    alias vscode="code"
-    alias dotfiles="code -n $DOTFILES"
-    export VISUAL="code"
-fi
-
 DOTFILES_SEARCH_PATH="$DOTFILES/zsh/.zshrc.d"
 BREWFILE="$DOTFILES/Brewfile"
 
@@ -30,7 +22,7 @@ function _edit {
     if is_vscode_terminal; then
         code -w "$file"
     else
-        $EDITOR $file
+        $VISUAL $file
     fi
 }
 
@@ -40,9 +32,9 @@ function dot {
     local query="$1"
 
     # No arguments: open dotfiles in editor
-    if [[ -z "$query" ]] then;
+    if [[ -z "$query" ]]; then
         [[ ! -t 1 ]] && echo "$DOTFILES" && return 0
-        dotfiles;
+        $VISUAL "$DOTFILES"
 
     # dot brew
     elif [[ "$query" == br* ]]; then
@@ -56,13 +48,13 @@ function dot {
         result=$(_list_files "$query" | head -n1)
 
         # query found...
+        # shellcheck disable=SC1046,SC1073
         if [[ -f "$result" ]]; then
             [[ ! -t 1 ]] && echo "$result" && return 0
             >&2 echo "${fg[yellow]}edited:${fg[default]} $result"
             _edit "$result"
-
         # query not found...
-        else;
+        else
             [[ -t 1 ]] && >&2 {
                 echo "${fg[red]}error:${fg[default]} could not find ${fg[cyan]}${query}${fg[default]}"
                 local filename="10-$query.sh"
