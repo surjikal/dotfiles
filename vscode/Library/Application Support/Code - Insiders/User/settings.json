@@ -242,5 +242,8 @@
         "args": []
     },
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "extensions.ignoreRecommendations": false
+    "extensions.ignoreRecommendations": false,
+    "workbench.editorAssociations": {
+        "git-rebase-todo": "default"
+    }
 }
