@@ -29,6 +29,11 @@ function extend_path {
   [[ -d "$1" ]] && export PATH="$1:$PATH"
 }
 
+function error {
+  # shellcheck disable=SC2102,SC2154,SC2068,SC2086
+  echo ${fg[red]}error:${fg[default]} $@
+}
+
 function warn {
   # shellcheck disable=SC2102,SC2154,SC2068,SC2086
   echo ${fg[yellow]}warning:${fg[default]} $@
