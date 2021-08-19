@@ -13,13 +13,15 @@ alias dotfiles='nano "$DOTFILES/zsh/.zshrc"'
 
 alias reload='unset NO_RCS && exec $SHELL -l'
 alias ohshit='NO_RCS=1 exec $SHELL -l'
+
 function dot {
     dotfiles
 }
 
 [[ -n "$NO_RCS" ]] && return
 
-autoload -U colors; colors
+autoload -U colors
+colors
 
 # Source all from zshrc.d
 export ZSHRCD="$DOTFILES/zsh/.zshrc.d"
@@ -28,3 +30,6 @@ for f in $(find -L "$ZSHRCD" -name "*.sh" -type f | sort); do
     # shellcheck source=/dev/null
     source "$f"
 done
+
+# Everything added below has been added by install scripts
+##########################################################
