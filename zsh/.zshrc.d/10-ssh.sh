@@ -66,7 +66,7 @@ function sshconf {
 # Tab completion for 'sshconf' command
 compdef __sshconf_completions sshconf
 function __sshconf_completions {
-    local _slugs="$(_sshconf__list_files | xargs -L 1 basename)"
+    local _slugs="$(_sshconf__list_files | xargs -L 1 basename | grep -v '^\.')"
     _arguments -C \
         "1: :($_slugs)" \
         "*::arg:->args"
