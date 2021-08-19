@@ -52,8 +52,8 @@ function vpn_stop() {
 }
 
 function vpn_ssh_wrapper {
-  vpn_active "$1" || vpn_start
-  ssh "$@"
+    vpn_active "$1" || vpn_start
+    ssh "$@"
 }
 
 alias vs="vpn_start"
