@@ -13,6 +13,9 @@
 	; Add all updated or deleted files, creates commit called 'tmp'
 	tmp = "!f() { git add --update; git commit -m 'tmp'; }; f"
 	untmp = "!f() { git reset --soft HEAD~1; git reset; }; f"
+	stash-pick = "!f() { git stash pop $(git stash list | fzf | cut -d: -f1) }; f"
+	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
+              do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
 
 # Props to:
