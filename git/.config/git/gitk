@@ -1,4 +1,4 @@
-set mainfont {Menlo 15}
+set mainfont {Menlo 16}
 set textfont {Menlo 14}
 set uifont {Menlo 12}
 set tabstop 4
@@ -26,7 +26,7 @@ set colors {#59f68d #ff5555 #bd93f9 #ff79c6 #f8f8f8 #ffb86c #ffb86c}
 set diffcolors {#ff5555 #59f68d #bd93f9}
 set mergecolors {#ff5555 #bd93f9 #59f68d #bd93f9 #ffb86c #8be9fd #ff79c6 #f1fa8c #8be9fd #ff79c6 #8be9fd #ffb86c #8be9fd #50fa7b #ffb86c #ff79c6}
 set markbgcolor #282a36
-set diffcontext 3
+set diffcontext 10
 set selectbgcolor #44475a
 set foundbgcolor #f1fa8c
 set currentsearchhitbgcolor #ffb86c
