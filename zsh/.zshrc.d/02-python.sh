@@ -1,9 +1,6 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
-export PIP_IGNORE_INSTALLED=1
-export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
-
 # poetry
 export PATH="$HOME/.poetry/bin:$PATH"
 
@@ -11,16 +8,21 @@ export PATH="$HOME/.poetry/bin:$PATH"
 # export PIPENV_SHELL_FANCY=1
 export PIPENV_VERBOSITY=-1
 export PIPENV_VENV_IN_PROJECT="enabled"
-export PIPENV_DEFAULT_PYTHON_VERSION="3.8.5"
+
+# https://pipenv.pypa.io/en/latest/advanced/#working-with-platform-provided-python-components
+export PIP_IGNORE_INSTALLED=1
+export PIPENV_DEFAULT_PYTHON_VERSION="3.8.12" # should match pyenv global
 
 # Unsure what it does, but yolo. Safe to remove later.
 # https://bugs.python.org/issue33725
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
 
 if is_installed pyenv; then
+    export PYENV_VIRTUALENVWRAPPER_PREFER_PYVENV="true"
     eval "$(pyenv init -)"
     PYENV_ROOT="$(pyenv root)"
     export PYENV_ROOT
+    export PIPENV_PYTHON="$PYENV_ROOT/shims/python"
 fi
 
 if is_installed pip; then
