@@ -57,6 +57,10 @@ function route-add {
     sudo route -n add -net "$@"
 }
 
+function flushdns {
+    sudo killall -HUP mDNSResponder
+}
+
 # Random
 
 function sum {
