@@ -26,3 +26,7 @@ if is_installed mkcert; then
     NODE_EXTRA_CA_CERTS="$(mkcert -CAROOT)/rootCA.pem"
     export NODE_EXTRA_CA_CERTS
 fi
+
+function npmg {
+    npm --location=global "$@"
+}
