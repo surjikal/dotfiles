@@ -21,3 +21,4 @@ _ssh_backup/
 
 # Cache
 .cache
+tmux/.tmux/plugins/*
