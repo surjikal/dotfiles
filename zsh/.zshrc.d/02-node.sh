@@ -1,6 +1,10 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
+# If we're using BUN, don't send them telemetry
+# https://github.com/Jarred-Sumner/bun#environment-variables
+export DISABLE_BUN_ANALYTICS=1
+
 # Enable persistent REPL history for `node`.
 export NODE_REPL_HISTORY=~/.node_history
 
