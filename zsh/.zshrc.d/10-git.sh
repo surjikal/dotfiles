@@ -3,11 +3,15 @@
 
 # gg - opens up git gui
 # gk - opens up gitk
+
 alias gs="git status --untracked-files=no --short"
 alias grh="git reset --hard"
 alias gr="HUSKY_SKIP_HOOKS=1 git rebase"
-alias gri="HUSKY_SKIP_HOOKS=1 git rebase --interactive"
+alias gri="HUSKY_SKIP_HOOKS=1 git rebase --interactive --rebase-merges"
+alias gm="HUSKY_SKIP_HOOKS git merge"
+alias gmc="HUSKY_SKIP_HOOKS=1 git merge --continue"
 alias gf="git fetch --all"
+# alias g="git switch"
 
 function git-branch-age() {
     eval "$(
@@ -52,7 +56,6 @@ function gga() {
 #
 # Also hardcoding the Gitk layout here, to keep the git tree clean.
 
-CODE_GITK_CONFIG="$DOTFILES/git/.config/git/gitk"
 LIVE_GITK_CONFIG="$HOME/.config/git/gitk"
 
 __surj_gitk_del_geometry() {
@@ -77,11 +80,14 @@ set permviews {}" >>"$LIVE_GITK_CONFIG"
 function gk() {
     local args=("${@:-"--all"}")
     __surj_gitk_add_geometry
-    gitk "${args[@]}"
+    gitk --date-order "${args[@]}"
 }
 
 # Fixes graphical issues with git-gui / gitk on macOS
-extend_path /usr/local/opt/tcl-tk/bin
+# extend_path /usr/local/opt/tcl-tk/bin
 
 # Silence some OSX warning about TK being deprecated
 export TK_SILENCE_DEPRECATION=1
+
+alias g="gg"
+alias k="gk"
