@@ -39,13 +39,28 @@ git_stats() {
 
 custom_git_branch() {
   local branch
-  branch=$(git symbolic-ref --short HEAD 2>/dev/null)
-  if git diff-index --quiet HEAD >/dev/null 2>&1; then
+  echo -n "%F{237}%F{clear}"
+  git diff-index --quiet HEAD >/dev/null 2>&1
+  ret=$?
+  [[ $ret -eq 128 ]] && return
+
+  if [[ $ret -eq 0 ]]; then
     echo -n "%F{green}"
   else
     echo -n "%F{red}"
   fi
-  echo "$branch%F{clear}"
+
+  branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+  echo -n "$branch"
+
+  if [[ -n "$branch" ]]; then
+    tracking=$(git status -b --porcelain=v2 | grep "^# branch.upstream " | cut -d " " -f 3- | head -n1)
+    if [[ -n "$tracking" ]]; then
+      echo -n "%F{008}:%F{cyan}$tracking"
+    fi
+  fi
+
+  echo -n "%F{clear}"
 }
 
 POWERLEVEL9K_CUSTOM_GIT_BRANCH="custom_git_branch"
@@ -59,7 +74,8 @@ custom_pyenv() {
     local version;
     version=$(pyenv version-alias)
     if [[ "${version}" != "global" ]]; then
-        echo "${version//\%/%%}"
+        echo -n "%F{237} - %F{clear}"
+        echo -n "${version//\%/%%}"
     fi
 }
 POWERLEVEL9K_CUSTOM_PYENV="custom_pyenv"
@@ -78,10 +94,30 @@ export VIRTUAL_ENV_DISABLE_PROMPT=
 #   POWERLEVEL9K_CUSTOM_GIT_CHAIN_SEGMENT_ICON=""
 # fi
 
+
+custom_segment() {
+  echo -e "%F{237}::%F{clear}"
+}
+POWERLEVEL9K_CUSTOM_SEGMENT="custom_segment"
+POWERLEVEL9K_CUSTOM_SEGMENT_BACKGROUND="clear"
+POWERLEVEL9K_CUSTOM_SEGMENT_FOREGROUND="237"
+POWERLEVEL9K_CUSTOM_SEGMENT_ICON=""
+POWERLEVEL9K_CUSTOM_SEGMENT_SEGMENT_ICON=""
+
+
+custom_newline() {
+  echo -e "\n%F{237}│%F{clear}"
+}
+POWERLEVEL9K_CUSTOM_NEWLINE="custom_newline"
+POWERLEVEL9K_CUSTOM_NEWLINE_BACKGROUND="clear"
+POWERLEVEL9K_CUSTOM_NEWLINE_FOREGROUND="008"
+POWERLEVEL9K_CUSTOM_NEWLINE_ICON=""
+POWERLEVEL9K_CUSTOM_NEWLINE_SEGMENT_ICON=""
+
 custom_time() {
   local now
   now="$(date +%H:%M:%S)"
-  echo -e "%F{008}$now\n%F{237}│%F{clear}"
+  echo -e "%F{008}$now"
 }
 POWERLEVEL9K_CUSTOM_TIME="custom_time"
 POWERLEVEL9K_CUSTOM_TIME_BACKGROUND="clear"
@@ -91,10 +127,11 @@ POWERLEVEL9K_CUSTOM_TIME_SEGMENT_ICON=""
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   custom_time
-  dir
-  virtualenv_joined
-  # custom_pyenv_joined
   custom_git_branch_joined
+  virtualenv_joined
+  custom_newline
+  dir
+  # custom_pyenv_joined
 )
 
 # ╭─
