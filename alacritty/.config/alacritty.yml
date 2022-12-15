@@ -127,9 +127,6 @@ key_bindings:
   - { key: End, chars: "\x05" }
   - { key: Back, mods: Command, chars: "\x15" }
 
-  - { key: Left, mods: Alt, chars: "\x1b\x62" }
-  - { key: Right, mods: Alt, chars: "\x1b\x66" }
-
   - { key: PageUp, mods: Shift, chars: "\x1b[5;2~" }
   - { key: PageUp, mods: Control, chars: "\x1b[5;5~" }
   - { key: PageUp, chars: "\x1b[5~" }
