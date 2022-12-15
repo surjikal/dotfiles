@@ -6,7 +6,7 @@ export PATH="/usr/local/sbin:$PATH" # Unsure why this is needed...
 # Add 'bin' dir from dotfiles to path
 export PATH="$DOTFILES/bin:$PATH"
 
-is_installed ccat && alias cat="ccat"
+# is_installed ccat && alias cat="ccat"
 is_installed icdiff && alias diff="icdiff"
 
 # Show open ports
