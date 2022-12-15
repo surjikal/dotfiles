@@ -9,5 +9,6 @@ zsh
 procs
 boto
 karabiner
+lsd
 tmux
 alacritty
