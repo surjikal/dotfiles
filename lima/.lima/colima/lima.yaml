@@ -1,0 +1,23 @@
+arch: default
+images:
+    - location: https://cloud-images.ubuntu.com/impish/current/impish-server-cloudimg-amd64.img
+      arch: x86_64
+    - location: https://cloud-images.ubuntu.com/impish/current/impish-server-cloudimg-arm64.img
+      arch: aarch64
+cpus: 2
+memory: 2GiB
+disk: 60GiB
+mounts:
+    - location: "~"
+      writable: false
+    - location: /tmp/colima
+      writable: true
+ssh:
+    localPort: 61197
+    loadDotSSHPubKeys: false
+containerd:
+    system: false
+    user: false
+firmware:
+    legacyBIOS: false
+useHostResolver: true
