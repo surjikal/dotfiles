@@ -31,7 +31,7 @@ function video-normalize {
     ls -lah "$outputfile"
 }
 
-function image-normalize {
+function img-normalize {
     for filename; do
         (
             local output
@@ -42,6 +42,17 @@ function image-normalize {
         ) &
     done
     wait
+}
+
+function img-convert {
+    local filepath="$1"
+    local format="$2"
+    local outputfile="${filepath%.*}.$format"
+    if [[ -z "$format" ]] || [[ -z "$filename" ]]; then
+        echo "USAGE: img-convert <filepath> <png|jpg|etc...>"
+        exit 1
+    fi
+    magick convert "$filepath" "$@" "$outputfile"
 }
 
 function ocr {
