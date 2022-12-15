@@ -57,6 +57,7 @@ Run `dot stow` and edit the `STOWED` array to specify which dirs you want to sto
 
 ## Links
 
+- https://github.com/ibraheemdev/modern-unix
 - https://thorsten-hans.com/5-types-of-zsh-aliases#suffix-aliases
 
 ## Shoutouts to...
