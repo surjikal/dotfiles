@@ -1,6 +1,7 @@
 # Matching for secret files
 *.secrets?.*
 *-secret.*
+*-secret-*.*
 secret.*
 _secret.*
 
@@ -21,4 +22,6 @@ _ssh_backup/
 
 # Cache
 .cache
-tmux/.tmux/plugins/*
+
+
+!.gitignore
