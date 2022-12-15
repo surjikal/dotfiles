@@ -14,7 +14,7 @@ function is_vscode_terminal {
 function is_subdir {
     local directory="$1"
     local subdirectory="$2"
-    [ "${subdirectory##$directory}" != "$subdirectory" ] && return -1
+    [ "${subdirectory##"$directory"}" != "$subdirectory" ] && return -1
     return 0
 }
 
@@ -61,4 +61,21 @@ function exec_retry {
 # https://github.com/romkatv/powerlevel10k
 function color_scheme {
   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
+}
+
+# https://superuser.com/questions/1228411/silent-background-jobs-in-zsh/1285272
+function silent_fork() {
+  if [[ -n $ZSH_VERSION ]]; then  # zsh:  https://superuser.com/a/1285272/365890
+    setopt local_options no_notify no_monitor
+    # We'd use &| to background and disown, but incompatible with bash, so:
+    "$@" &
+  elif [[ -n $BASH_VERSION ]]; then  # bash: https://stackoverflow.com/a/27340076/5353461
+    { 2>&3 "$@"& } 3>&2 2>/dev/null
+  else  # Unknownness - just background it
+    "$@" &
+  fi
+}
+
+function silent_wait() {
+  wait 2>/dev/null &1
 }
