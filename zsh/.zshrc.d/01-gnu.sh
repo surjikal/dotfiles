@@ -15,3 +15,5 @@ extend_path /usr/local/opt/bc/bin
 
 # gnu sed
 extend_path /usr/local/opt/gnu-sed/libexec/gnubin
+
+export LESS='--raw-control-chars --mouse --wheel-lines=1'
