@@ -2,7 +2,12 @@
 # shellcheck shell=bash
 
 # poetry
-export PATH="$HOME/.poetry/bin:$PATH"
+export POETRY_VIRTUALENVS_IN_PROJECT=true
+export POETRY_VIRTUALENVS_PREFER_ACTIVE_PYTHON=true
+# export POETRY_VIRTUALENVS_OPTIONS_NO_SETUPTOOLS=true
+# export POETRY_VIRTUALENVS_OPTIONS_NO_PIP=true
+export POETRY_HOME="$HOME/.poetry"
+export PATH="$POETRY_HOME/bin:$PATH"
 
 # Seems to make 'pipenv shell' a lot faster, but breaks virtualenv auto activation
 # export PIPENV_SHELL_FANCY=1

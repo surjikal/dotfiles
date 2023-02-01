@@ -13,7 +13,7 @@ function ssh_tunnel() {
     host=${dst}
     dst=${src}
   fi
-  ssh -N -T -L "0.0.0.0:${src}:localhost:${dst}" "${host}"
+  ssh -N -T -L "0.0.0.0:${src}:127.0.0.1:${dst}" "${host}"
 }
 
 
@@ -64,10 +64,10 @@ function sshconf {
 }
 
 # Tab completion for 'sshconf' command
-compdef __sshconf_completions sshconf
-function __sshconf_completions {
-    local _slugs="$(_sshconf__list_files | xargs -L 1 basename | grep -v '^\.')"
-    _arguments -C \
-        "1: :($_slugs)" \
-        "*::arg:->args"
-}
+# compdef __sshconf_completions sshconf
+# function __sshconf_completions {
+#     local _slugs="$(_sshconf__list_files | xargs -L 1 basename | grep -v '^\.')"
+#     _arguments -C \
+#         "1: :($_slugs)" \
+#         "*::arg:->args"
+# }

@@ -1,17 +1,15 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
-# gg - opens up git gui
-# gk - opens up gitk
-
-alias gs="git status --untracked-files=no --short"
+alias gst="git status --untracked-files=no --short"
 alias grh="git reset --hard"
 alias gr="HUSKY_SKIP_HOOKS=1 git rebase"
 alias gri="HUSKY_SKIP_HOOKS=1 git rebase --interactive --rebase-merges"
-alias gm="HUSKY_SKIP_HOOKS git merge"
+alias gm="HUSKY_SKIP_HOOKS=1 git merge"
 alias gmc="HUSKY_SKIP_HOOKS=1 git merge --continue"
 alias gf="git fetch --all"
-# alias g="git switch"
+alias gs="git stash"
+alias nohook="HUSKY_SKIP_HOOKS=1"
 
 function git-branch-age() {
     eval "$(
@@ -89,5 +87,4 @@ function gk() {
 # Silence some OSX warning about TK being deprecated
 export TK_SILENCE_DEPRECATION=1
 
-alias g="gg"
 alias k="gk"

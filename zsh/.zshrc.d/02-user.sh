@@ -20,8 +20,10 @@ function ramdisk {
     [ -d /Volumes/ramdisk ] && cd /Volumes/ramdisk && return 0
     # Otherwise create it
     local size_in_mb=${1:-8192}
-    local blocksize=$(( size_in_mb * 2048 ))
-    diskutil partitionDisk "$(hdiutil attach -nomount ram://${blocksize})" 1 GPTFormat APFS 'ramdisk' '100%'
+    local blocksize=$((size_in_mb * 2048))
+
+    # diskutil erasevolume HFS+ 'RAM Disk' $(hdiutil attach -nomount ram://${blocksize})
+    # diskutil partitionDisk "$(hdiutil attach -nomount ram://${blocksize})" 1 GPTFormat APFS 'ramdisk' '100%'
 }
 
 function cdram {

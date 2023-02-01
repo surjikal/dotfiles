@@ -22,9 +22,9 @@
 # https://gist.github.com/tdd/470582
 [core]
 	editor = code-insiders --wait
-	pager = diff-so-fancy | less --tabs=4 -RFX
+	; pager = diff-so-fancy | less --tabs=4 -RFX
 	whitespace = -trailing-space
-	tool = vscode
+	tool = code-insiders
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
 
@@ -60,36 +60,44 @@
 
 [gui]
 	tabsize = 4
-	fontdiff = -family Menlo -size 14 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"MesloLGS NF\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
 	spellingdictionary = none
 	gcwarning = false
 	usettk = 1
-	fontui = -family .AppleSystemUIFont -size 14 -weight normal -slant roman -underline 0 -overstrike 0
 	pruneduringfetch = true
 
 ; Taken from:
 ; https://github.com/so-fancy/diff-so-fancy
-[color]
-	ui = true
+; [color]
+; 	ui = true
 
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+; [color "diff-highlight"]
+; 	oldNormal = red bold
+; 	oldHighlight = red bold 52
+; 	newNormal = green bold
+; 	newHighlight = green bold 22
 
-[color "diff"]
-	meta = 11
-	frag = magenta bold
-	commit = yellow bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+; [color "diff"]
+; 	; meta = blue
+; 	frag = "#FF92D0"
+; 	; commit = yellow bold
+; 	old = green
+; 	; new = blue
+; 	; whitespace = red reverse
+
 
 [rerere]
 	enabled = true
 
+[push]
+	autoSetupRemote = true
+
 [pull]
 	ff = only
+	rebase = merges
+
 [init]
 	defaultBranch = master
+
+[feature]
+	manyFiles = true

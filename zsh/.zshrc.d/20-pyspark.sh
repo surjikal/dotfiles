@@ -27,22 +27,23 @@ function spark {
     PYSPARK_PYTHON="$(which python)" \
     PYSPARK_DRIVER_PYTHON=ipython \
     SPARK_HOME="$SPARK_HOME" \
-        pyspark \
+        poetry run pyspark \
+        --conf "spark.jars.packages=$(spark_avro_package)" \
         "$@"
-    # --conf "spark.jars.packages=$(spark_avro_package)"
 }
 
-function spark-nb {
+function spark-notebook {
     PYSPARK_PYTHON="$(which python)" \
     PYSPARK_DRIVER_PYTHON=jupyter \
     PYSPARK_DRIVER_PYTHON_OPTS=notebook \
     SPARK_HOME="$SPARK_HOME" \
-        pipenv run pyspark \
+        poetry run pyspark \
+        --conf "spark.jars.packages=$(spark_avro_package)" \
         "$@"
 }
 
-PYTHONPATH="${PYTHONPATH}:${SPARK_HOME}/python/"
-PYTHONPATH="${PYTHONPATH}:${SPARK_HOME}/python/lib/py4j"
+PYTHONPATH="${PYTHONPATH}:${SPARK_HOME}/python"
+PYTHONPATH="${PYTHONPATH}:${SPARK_HOME}/python/lib"
 
 export PYTHONPATH
 export SPARK_HOME

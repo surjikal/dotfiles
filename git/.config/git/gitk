@@ -14,6 +14,7 @@ set maxrefs 20
 set visiblerefs {"master"}
 set hideremotes 0
 set showlocalchanges 1
+set showallstashes 1
 set datetimeformat {%Y-%m-%d %H:%M:%S}
 set limitdiffs 1
 set uicolor #242630

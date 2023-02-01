@@ -16,4 +16,8 @@ extend_path /usr/local/opt/bc/bin
 # gnu sed
 extend_path /usr/local/opt/gnu-sed/libexec/gnubin
 
+# needed by jsonv
+# https://github.com/archan937/jsonv.sh
+alias gawk="awk"
+
 export LESS='--raw-control-chars --mouse --wheel-lines=1'
