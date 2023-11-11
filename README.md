@@ -1,6 +1,6 @@
 # dotfiles
 
-![screenshot](screenshot.png)
+<img width="951" alt="screenshot" src="https://github.com/surjikal/dotfiles/assets/339168/9ca3fd96-ed7e-4c55-ae80-691bd8509277">
 
 ## What is this?
 
