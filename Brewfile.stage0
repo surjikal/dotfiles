@@ -1,0 +1,76 @@
+brew "antibody"
+brew "asdf"
+brew "bc"
+brew "broot"
+brew "ccat"
+brew "coreutils"
+brew "diff-so-fancy"
+brew "direnv"
+brew "fzf"
+brew "git"
+brew "gnu-tar"
+brew "gpg"
+brew "grc"
+brew "grep"
+brew "htop"
+brew "icdiff"
+brew "icu4c"
+brew "lsd"
+brew "jenv"
+brew "moreutils"
+brew "mtr"
+brew "nano"
+brew "ncdu"
+brew "nmap"
+brew "nvm"
+brew "pyenv-virtualenv"
+brew "pyenv"
+brew "rbenv"
+brew "reattach-to-user-namespace"
+brew "ripgrep"
+brew "ruby"
+brew "shellcheck"
+brew "shfmt"
+brew "socat"
+brew "stow"
+brew "terraform"
+brew "volta"
+brew "wget"
+brew "zsh"
+brew "poetry"
+brew "imagemagick"
+brew "graphviz"
+brew "jq"
+brew "findutils"
+
+# riceutils
+brew "btop"
+brew "cowsay"
+brew "cmatrix"
+brew "pipes-sh"
+
+cask "font-hack-nerd-font"
+
+
+brew "surjikal/tap/git-gui"
+
+# fonts
+brew "font-meslo-lg-nerd-font"
+cask "font-meslo-nerd-font"
+
+# install app store apps via cli
+brew "mas"
+
+# 42 deps
+brew "libvips" # used for 'sharp'
+brew "aswcli"
+brew "google-cloud-sdk"
+
+cask "alacritty"
+cask "visual-studio-code-insiders"
+cask "firefox-developer-edition"
+cask "karabiner-elements"
+cask "spectacle"
+
+# not 100% sure but related to stable diffusion python
+brew "psutils"

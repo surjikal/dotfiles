@@ -1,0 +1,32 @@
+brew "openjdk"
+brew "openjdk@11"
+cask "temurin11"
+cask "temurin17"
+brew "temurin"
+cask "temurin8"
+
+brew "apache-spark"
+brew "redis"
+brew "lens"
+
+brew "bottom"
+brew "cheat"
+brew "dive"
+
+# cask "docker"
+cask "datagrip"
+cask "teamviewer"
+cask "bartender"
+cask "1password"
+cask "signal"
+cask "discord"
+cask "tailscale"
+cask "slack"
+cask "zoom"
+cask "dropbox"
+cask "cyberduck"
+cask "microsoft-teams"
+
+mas "Lungo", id:1263070803
+mas "Tailscale", id:1475387142
+mas "Dato", id:1470584107
