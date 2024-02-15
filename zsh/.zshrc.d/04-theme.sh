@@ -47,7 +47,7 @@ custom_git_branch() {
   if [[ $ret -eq 0 ]]; then
     echo -n "%F{green}"
   else
-    echo -n "%F{red}"
+    echo -n "%F{magenta}"
   fi
 
   branch=$(git symbolic-ref --short HEAD 2>/dev/null)
@@ -69,17 +69,47 @@ POWERLEVEL9K_CUSTOM_GIT_BRANCH_SEGMENT_ICON=""
 POWERLEVEL9K_CUSTOM_GIT_BRANCH_BACKGROUND="clear"
 POWERLEVEL9K_CUSTOM_GIT_BRANCH_FOREGROUND="008"
 
+custom_node_version() {
+  local version;
+  version="$(nvm current)"
+  # echo -n "%F{237} - %F{clear}"
+  echo -e "%F{008}[node ${version//\%/%%}]"
+}
+POWERLEVEL9K_CUSTOM_NODE="custom_node_version"
+POWERLEVEL9K_CUSTOM_NODE_BACKGROUND='clear'
+
+
+custom_poetry_python_version() {
+    local py_version;
+    py_version="$(poetry env info -n --no-ansi --no-plugins | grep Python | head -n1 | awk '{print $2}')"
+    if [[ "${py_version}" != "global" ]]; then
+        # echo -n "%F{237} - %F{clear}"
+        echo -e "%F{008}[poetry ${py_version//\%/%%}]"
+    fi
+}
 
 custom_pyenv() {
-    local version;
-    version=$(pyenv version-alias)
-    if [[ "${version}" != "global" ]]; then
-        echo -n "%F{237} - %F{clear}"
-        echo -n "${version//\%/%%}"
+    local py_version;
+    py_version="$(pyenv version-name)"
+    if [[ "${py_version}" != "global" ]]; then
+        # echo -n "%F{237} - %F{clear}"
+        echo -e "%F{008}[pyenv ${py_version//\%/%%}]"
     fi
 }
 POWERLEVEL9K_CUSTOM_PYENV="custom_pyenv"
 POWERLEVEL9K_CUSTOM_PYENV_BACKGROUND='clear'
+
+custom_virtualenv() {
+  local name="${VIRTUAL_ENV:t}"
+  if [[ -z "${name}" ]]; then return; fi
+  if [[ "${name}" == ".venv" ]]; then
+    name="$(dirname "${VIRTUAL_ENV:a}")"
+    name="${name:t}"
+  fi
+  echo -e "%F{008}(${name//\%/%%})"
+}
+POWERLEVEL9K_CUSTOM_VIRTUALENV="custom_virtualenv"
+POWERLEVEL9K_CUSTOM_VIRTUALENV_BACKGROUND='clear'
 export VIRTUAL_ENV_DISABLE_PROMPT=
 
 
@@ -127,10 +157,12 @@ POWERLEVEL9K_CUSTOM_TIME_SEGMENT_ICON=""
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(
   custom_time
-  custom_git_branch_joined
-  virtualenv_joined
+  custom_pyenv_joined
+  # custom_node_joined
+  # custom_virtualenv_joined
   custom_newline
-  dir
+  dir_joined
+  custom_git_branch_joined
   # custom_pyenv_joined
 )
 

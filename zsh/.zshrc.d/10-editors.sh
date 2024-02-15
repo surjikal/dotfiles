@@ -10,7 +10,9 @@
 is_installed nano && export EDITOR="nano"
 
 # subl
-export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+if [[ -e "/Applications/Sublime Text.app" ]]; then
+    export PATH="/Applications/Sublime Text.app/Contents/SharedSupport/bin:$PATH"
+fi
 
 # vscode
 export PATH="$PATH:/Applications/Visual Studio Code - Insiders.app/Contents/Resources/app/bin"

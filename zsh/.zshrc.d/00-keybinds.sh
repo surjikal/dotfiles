@@ -1,4 +1,5 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
+# shellcheck shell=bash
 
 # CTRL + BACKSPACE
 bindkey '^?' backward-kill-line

@@ -16,7 +16,7 @@ export NODE_REPL_MODE='sloppy'
 
 # Add local node modules to path
 export PATH="$PATH:$HOME/node_modules/.bin"
-export PATH="/usr/local/opt/icu4c/bin:$PATH"
+export PATH="$HOMEBREW_PREFIX/opt/icu4c/bin:$PATH"
 
 # Prefer node_module binaries from current working directory, if available
 export PATH="./node_modules/.bin:$PATH"

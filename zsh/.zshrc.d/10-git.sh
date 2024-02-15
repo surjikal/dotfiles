@@ -3,13 +3,30 @@
 
 alias gst="git status --untracked-files=no --short"
 alias grh="git reset --hard"
-alias gr="HUSKY_SKIP_HOOKS=1 git rebase"
-alias gri="HUSKY_SKIP_HOOKS=1 git rebase --interactive --rebase-merges"
-alias gm="HUSKY_SKIP_HOOKS=1 git merge"
-alias gmc="HUSKY_SKIP_HOOKS=1 git merge --continue"
+alias gr="HUSKY=0 HUSKY_SKIP_HOOKS=1 git rebase"
+alias gri="HUSKY=0 HUSKY_SKIP_HOOKS=1 git rebase --interactive --rebase-merges"
+alias gm="HUSKY=0 HUSKY_SKIP_HOOKS=1 git merge"
+alias gmc="HUSKY=0 HUSKY_SKIP_HOOKS=1 git merge --continue"
+alias nohook="HUSKY=0 HUSKY_SKIP_HOOKS=1"
 alias gf="git fetch --all"
-alias gs="git stash"
-alias nohook="HUSKY_SKIP_HOOKS=1"
+alias gs="git status --short -uno"
+
+
+# function git-status() {
+#     for stat in $(git status --porcelain); do
+#         local g_status;
+#         local g_filename;
+#         g_status=$(echo "$stat" | cut -d' ' -f1)
+#         g_filename=$(echo "$stat" | cut -d' ' -f2-)
+#         if [[ "${g_status}" == "??" ]]; then
+#             # shellcheck disable=SC2028,SC2154
+#             echo -e "%F{008}${g_filename}${fg[default]}"
+#         else
+#             # shellcheck disable=SC2028,SC2154
+#             echo -e "${fg[green]}${g_filename}${fg[default]}"
+#         fi
+#     done
+# }
 
 function git-branch-age() {
     eval "$(
@@ -57,8 +74,8 @@ function gga() {
 LIVE_GITK_CONFIG="$HOME/.config/git/gitk"
 
 __surj_gitk_del_geometry() {
-    sed -i '/^set geometry/d' "$LIVE_GITK_CONFIG"
-    sed -i '/^set permviews/d' "$LIVE_GITK_CONFIG"
+    sed -i -e '/^set geometry/d' "$LIVE_GITK_CONFIG"
+    sed -i -e '/^set permviews/d' "$LIVE_GITK_CONFIG"
 }
 
 __surj_gitk_add_geometry() {
@@ -87,4 +104,4 @@ function gk() {
 # Silence some OSX warning about TK being deprecated
 export TK_SILENCE_DEPRECATION=1
 
-alias k="gk"
+# alias k="gk"

@@ -2,19 +2,22 @@
 # shellcheck shell=bash
 
 # coreutils
-extend_path /usr/local/opt/coreutils/libexec/gnubin
+extend_path "${HOMEBREW_PREFIX}/opt/coreutils/libexec/gnubin"
 
 # gnu grep
-extend_path /usr/local/opt/grep/libexec/gnubin
+extend_path "${HOMEBREW_PREFIX}/opt/grep/libexec/gnubin"
 
 # gnu tar
-extend_path /usr/local/opt/gnu-tar/libexec/gnubin
+extend_path "${HOMEBREW_PREFIX}/opt/gnu-tar/libexec/gnubin"
 
 # gnu bc
-extend_path /usr/local/opt/bc/bin
+extend_path "${HOMEBREW_PREFIX}/opt/bc/bin"
 
 # gnu sed
-extend_path /usr/local/opt/gnu-sed/libexec/gnubin
+extend_path "${HOMEBREW_PREFIX}/opt/gnu-sed/libexec/gnubin"
+
+# gnu find
+extend_path "${HOMEBREW_PREFIX}/opt/findutils/libexec/gnubin"
 
 # needed by jsonv
 # https://github.com/archan937/jsonv.sh

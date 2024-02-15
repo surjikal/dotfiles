@@ -6,6 +6,9 @@ export PATH="/usr/local/sbin:$PATH" # Unsure why this is needed...
 # Add 'bin' dir from dotfiles to path
 export PATH="$DOTFILES/bin:$PATH"
 
+# privary stuff...
+export SHOPIFY_CLI_NO_ANALYTICS=1
+
 # is_installed ccat && alias cat="ccat"
 is_installed icdiff && alias diff="icdiff"
 
@@ -69,6 +72,16 @@ function sum {
     xargs | tr \  + | bc
 }
 
+function tojson {
+    dsq "$1" | jq --sort-keys -c '.[]'
+}
+
+function screenshot {
+    echo
+    neofetch
+    sleep 15
+}
+
 alias map="xargs -n1"
 alias untar="tar xf"
 alias matrix="cmatrix"
@@ -84,3 +97,41 @@ alias path='echo -e ${PATH//:/\\n}'
 alias week='date +%V'
 alias now_unix="date +'%s'"
 alias now="date +'%Y-%m-%d %H:%M:%S %Z'"
+
+function screenshots {
+    open "$HOME"/Screenshots
+}
+
+function openai-audio {
+    local prompt="${*}"
+    curl https://api.openai.com/v1/audio/speech \
+        -s \
+        -H "Authorization: Bearer ${OPENAI_API_KEY}" \
+        -H "Content-Type: application/json" \
+        -d "$(node -p 'JSON.stringify({model: "tts-1", input: process.argv[1], voice: "alloy"})' "${prompt}")"
+}
+
+function openai-say {
+    local tmpfile=$(mktemp /tmp/abc-script.XXXXXX)
+    openai-audio "${@}" > "${tmpfile}"
+    echo "playing: ${tmpfile}" >&2
+    ffplay -autoexit -nodisp -hide_banner -loglevel error -i "${tmpfile}"
+}
+
+function openai-gen {
+    local prompt="${*}"
+    curl https://api.openai.com/v1/chat/completions \
+        -s \
+        -H "Authorization: Bearer ${OPENAI_API_KEY}" \
+        -H "Content-Type: application/json" \
+        -d "$(node -p 'JSON.stringify({model: "gpt-3.5-turbo", messages:[{"role":"user", "content":process.argv[1]}]})' "${prompt}")" \
+    | jq -r '.choices[0].message.content'
+}
+
+function openai-gen-say {
+    local result
+    result=$(openai-gen "${@}")
+    echo "" >&2
+    echo "${result}" >&2
+    openai-say "${result}"
+}

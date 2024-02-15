@@ -26,7 +26,8 @@ export ZSH
 antibody bundle ohmyzsh/ohmyzsh
 
 # history / fzf
-is_installed fzf && antibody bundle ohmyzsh/ohmyzsh path:plugins/fzf
+is_installed atuin && antibody bundle ellie/atuin
+is_installed fzf   && antibody bundle ohmyzsh/ohmyzsh path:plugins/fzf
 
 # quiet direnv...
 export DIRENV_LOG_FORMAT=
@@ -45,7 +46,8 @@ antibody bundle ohmyzsh/ohmyzsh path:plugins/brew
 antibody bundle ohmyzsh/ohmyzsh path:plugins/aws
 antibody bundle ohmyzsh/ohmyzsh path:plugins/gcloud
 antibody bundle ohmyzsh/ohmyzsh path:plugins/docker
-antibody bundle jsporna/terraform-zsh-plugin
+is_installed tfenv && antibody bundle cda0/zsh-tfenv
+# antibody bundle jsporna/terraform-zsh-plugin
 # antibody bundle robbyrussell/oh-my-zsh path:plugins/terraform
 
 # node

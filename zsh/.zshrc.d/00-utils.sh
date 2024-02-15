@@ -1,7 +1,6 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
-
 # Check if command is available...
 function is_installed {
   command -v "$1" > /dev/null 2>&1
@@ -29,6 +28,12 @@ function extend_path {
   [[ -d "$1" ]] && export PATH="$1:$PATH"
 }
 
+function fatal {
+  export DOTFILES_FATAL_ERROR=1
+  # shellcheck disable=SC2102,SC2154,SC2068,SC2086
+  echo ${fg[red]}error:${fg[default]} $@
+}
+
 function error {
   # shellcheck disable=SC2102,SC2154,SC2068,SC2086
   echo ${fg[red]}error:${fg[default]} $@
@@ -40,11 +45,15 @@ function warn {
 }
 
 function file_name {
-  echo "${$(basename "$1")%.*}"
+  local file
+  file="$(basename "$1")"
+  echo "${file%.*}"
 }
 
 function file_ext {
-  echo "${$(basename "$1")##*.}"
+  local file
+  file="$(basename "$1")"
+  echo "${file##*.}"
 }
 
 function exec_retry {
