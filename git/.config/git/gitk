@@ -1,6 +1,6 @@
-set mainfont {Menlo 16}
-set textfont {Menlo 14}
-set uifont {Menlo 12}
+set mainfont {Menlo 25}
+set textfont {Menlo 21}
+set uifont {Menlo 18}
 set tabstop 4
 set findmergefiles 0
 set maxgraphpct 100
@@ -27,7 +27,7 @@ set colors {#59f68d #ff5555 #bd93f9 #ff79c6 #f8f8f8 #ffb86c #ffb86c}
 set diffcolors {#ff5555 #59f68d #bd93f9}
 set mergecolors {#ff5555 #bd93f9 #59f68d #bd93f9 #ffb86c #8be9fd #ff79c6 #f1fa8c #8be9fd #ff79c6 #8be9fd #ffb86c #8be9fd #50fa7b #ffb86c #ff79c6}
 set markbgcolor #282a36
-set diffcontext 10
+set diffcontext 11
 set selectbgcolor #44475a
 set foundbgcolor #f1fa8c
 set currentsearchhitbgcolor #ffb86c
@@ -54,3 +54,12 @@ set linkfgcolor #bd93f9
 set circleoutlinecolor #44475a
 set diffbgcolors {#282a36 #282a36}
 set web_browser open
+set geometry(main) 3456x2136+0+70
+set geometry(state) zoomed
+set geometry(topwidth) 3456
+set geometry(topheight) 635
+set geometry(pwsash0) "1245 1"
+set geometry(pwsash1) "1598 1"
+set geometry(botwidth) 1484
+set geometry(botheight) 1496
+set permviews {}

@@ -14,8 +14,7 @@
 	tmp = "!f() { git add --update; git commit -m 'tmp'; }; f"
 	untmp = "!f() { git reset --soft HEAD~1; git reset; }; f"
 	stash-pick = "!f() { git stash pop $(git stash list | fzf | cut -d: -f1) }; f"
-	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; \
-              do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
+	stashgrep = "!f() { for i in `git stash list --format=\"%gd\"` ; do git stash show -p $i | grep -H --label=\"$i\" \"$@\" ; done ; }; f"
 
 
 # Props to:
@@ -60,11 +59,12 @@
 
 [gui]
 	tabsize = 4
-	fontdiff = -family \"MesloLGS NF\" -size 12 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"MesloLGS NF\" -size 22 -weight normal -slant roman -underline 0 -overstrike 0
 	spellingdictionary = none
 	gcwarning = false
 	usettk = 1
 	pruneduringfetch = true
+	fontui = -family .AppleSystemUIFont -size 22 -weight normal -slant roman -underline 0 -overstrike 0
 
 ; Taken from:
 ; https://github.com/so-fancy/diff-so-fancy
@@ -101,3 +101,15 @@
 
 [feature]
 	manyFiles = true
+
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[log]
+	date = short
+
+[format]
+	pretty = format:%C(auto,blue)%ad %C(auto,yellow)%h%C(auto,magenta)% G? %C(auto,green)%<(16,trunc)%ae %C(auto,reset)%s%C(auto,red)% gD% D

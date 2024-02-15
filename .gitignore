@@ -23,5 +23,7 @@ _ssh_backup/
 # Cache
 .cache
 
-
 !.gitignore
+
+# tig
+tig/.tig_history
