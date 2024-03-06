@@ -17,9 +17,8 @@ if is_installed pyenv; then
 fi
 
 # Created by `userpath` on 2019-10-10 20:22:56
-export PATH="$PATH:/Users/nick/.local/bin"
+export PATH="$PATH:$HOME/.local/bin"
 export PATH="$HOME/.poetry/bin:$PATH"
-
 
 # Added automatically
 #############################################
