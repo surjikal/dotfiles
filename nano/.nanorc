@@ -2,3 +2,8 @@ include ~/.nanorc.d/*.nanorc
 
 set tabsize 4
 set tabstospaces
+set linenumbers
+
+
+set titlecolor white,black
+set numbercolor grey,black
