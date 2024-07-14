@@ -1,10 +1,9 @@
 #!/usr/bin/env zsh
 # shellcheck shell=bash
 
-export PATH="/usr/local/sbin:$PATH" # Unsure why this is needed...
-
-# Add 'bin' dir from dotfiles to path
-export PATH="$DOTFILES/bin:$PATH"
+export PATH="/usr/local/sbin:${PATH}" # Unsure why this is needed...
+export PATH="${DOTFILES}/bin:${PATH}"
+export PATH="${HOME}/bin:${PATH}"
 
 # privary stuff...
 export SHOPIFY_CLI_NO_ANALYTICS=1

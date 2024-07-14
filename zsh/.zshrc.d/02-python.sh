@@ -42,6 +42,10 @@ if is_installed pyenv; then
     alias ppip="pyenv-pip"
 fi
 
+function poetry-update {
+    poetry self update
+}
+
 alias pi="poetry lock --no-update && poetry install --sync"
 
 # if is_installed pip; then

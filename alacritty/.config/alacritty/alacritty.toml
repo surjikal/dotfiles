@@ -1,0 +1,245 @@
+import = ["/Users/nick/.config/alacritty/theme-custom.toml"]
+live_config_reload = true
+
+[bell]
+animation = "EaseOutExpo"
+duration = 0
+
+[cursor]
+style = "Beam"
+unfocused_hollow = true
+
+[env]
+# TERM = "alacritty"
+term = "xterm-256color"
+
+[font]
+size = 14.0
+
+[font.bold]
+family = "Menlo"
+style = "Normal"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "Menlo"
+
+[font.normal]
+family = "Menlo"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Quit"
+key = "Q"
+mods = "Command"
+
+[[keyboard.bindings]]
+key = "N"
+mods = "Command"
+
+[keyboard.bindings.command]
+args = ["-nb", "io.alacritty"]
+program = "open"
+
+[[keyboard.bindings]]
+action = "ResetFontSize"
+key = "Key0"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0001"
+key = "Home"
+
+[[keyboard.bindings]]
+chars = "\u0005"
+key = "End"
+
+[[keyboard.bindings]]
+chars = "\u0015"
+key = "Back"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u001B[5;2~"
+key = "PageUp"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[5;5~"
+key = "PageUp"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[5~"
+key = "PageUp"
+
+[[keyboard.bindings]]
+chars = "\u001B[6;2~"
+key = "PageDown"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u001B[6;5~"
+key = "PageDown"
+mods = "Control"
+
+[[keyboard.bindings]]
+chars = "\u001B[6~"
+key = "PageDown"
+
+[[keyboard.bindings]]
+chars = "\u001B[Z"
+key = "Tab"
+mods = "Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002K"
+key = "Up"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002L"
+key = "Right"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002R"
+key = "R"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002%"
+key = "D"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002\""
+key = "D"
+mods = "Command|Shift"
+
+[[keyboard.bindings]]
+chars = "\u0002x"
+key = "W"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002h"
+key = "H"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002j"
+key = "J"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002k"
+key = "K"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002l"
+key = "L"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u0002c"
+key = "T"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00021"
+key = "Key1"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00022"
+key = "Key2"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00023"
+key = "Key3"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00024"
+key = "Key4"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00025"
+key = "Key5"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00026"
+key = "Key6"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00027"
+key = "Key7"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00028"
+key = "Key8"
+mods = "Command"
+
+[[keyboard.bindings]]
+chars = "\u00029"
+key = "Key9"
+mods = "Command"
+
+[mouse]
+hide_when_typing = false
+
+# [mouse.double_click]
+# threshold = 300
+
+# [mouse.triple_click]
+# threshold = 300
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[selection]
+save_to_clipboard = false
+semantic_escape_chars = ",│`|:\"' ()[]{}<>"
+
+[shell]
+args = ["new-session", "-A", "-D", "-s", "main"]
+program = "/opt/homebrew/bin/tmux"
+
+[window]
+decorations = "buttonless"
+dynamic_padding = true
+dynamic_title = false
+startup_mode = "Maximized"
+
+[window.padding]
+x = 20
+y = 20

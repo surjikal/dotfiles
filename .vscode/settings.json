@@ -1,0 +1,23 @@
+{
+    "files.exclude": {
+        "**/.git": false,
+        "**/.svn": true,
+        "**/.hg": true,
+        "**/CVS": true,
+        "**/.DS_Store": true,
+        "**/Thumbs.db": true
+    },
+    "search.exclude": {
+        "alacritty/.config/alacritty/themes/**": true,
+        "nano/.nanorc.d/**.nanorc": true,
+        "**.itermcolors": true,
+        "**/node_modules": true,
+        "**/bower_components": true,
+        "**/*.code-search": true,
+        "**/alacritty/.config/alacritty/themes/images/**": true,
+        "**/vscode/Library/Application Support/**": true,
+        "**/.git": true,
+        "node/.npm/**": true,
+        "node/.nvm/**": true,
+    },
+}
