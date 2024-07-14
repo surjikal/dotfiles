@@ -51,19 +51,11 @@
     "explorer.confirmDragAndDrop": false,
     "explorer.openEditors.minVisible": 0,
     "window.restoreWindows": "one",
-    "workbench.editor.limit.value": 1000,
-    "workbench.editor.enablePreviewFromQuickOpen": false,
-    "workbench.enableExperiments": true,
-    "typescript.suggest.paths": false,
+
     "terminal.integrated.inheritEnv": false,
     "window.autoDetectHighContrast": false,
-    "editor.semanticHighlighting.enabled": false,
+
     "window.title": "${dirty}${activeEditorShort}${separator}${folderPath}${separator}${appName}",
-    "cue.toolsPath": "/opt/homebrew/bin/cue",
-    "coffeesense.useWorkspaceDependencies": true,
-    "toTypeScript.coffeescript.optionalChaining": true,
-    "toTypeScript.coffeescript.useJSModules": true,
-    "toTypeScript.coffeescript.useCS2": true,
 
     // General
     "files.associations": {
@@ -73,23 +65,22 @@
         "*.yaml.enc": "yaml",
         "git-rebase-todo": "git-rebase",
         ".dockerignore": "ignore",
-        "*.sh": "shellscript"
+        "*.sh": "shellscript",
+        ".node_history": "plaintext",
+        ".gcloudignore": "ignore"
     },
+
     "task.saveBeforeRun": "never",
-    "debug.javascript.codelens.npmScripts": "never",
     "debug.saveBeforeStart": "none",
+    "debug.javascript.codelens.npmScripts": "never",
     "debug.javascript.automaticallyTunnelRemoteServer": false,
     "security.workspace.trust.untrustedFiles": "open",
-    // JS / TS
+
     "editor.formatOnType": false,
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true,
-    },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
-    },
-    "javascript.format.semicolons": "insert",
+
+    // JS / TS
+    "typescript.suggest.paths": true,
+    "typescript.tsserver.experimental.enableProjectDiagnostics": true,
     "typescript.suggest.completeFunctionCalls": true,
     "typescript.tsserver.maxTsServerMemory": 16000,
     "typescript.workspaceSymbols.scope": "currentProject",
@@ -98,19 +89,79 @@
     "typescript.surveys.enabled": false,
     "typescript.tsserver.enableTracing": false,
     "typescript.check.npmIsInstalled": false,
+    "typescript.updateImportsOnFileMove.enabled": "always",
     "javascript.updateImportsOnFileMove.enabled": "always",
-    "[javascript]": {
+    "javascript.format.semicolons": "insert",
+
+    "toTypeScript.coffeescript.optionalChaining": true,
+    "toTypeScript.coffeescript.useJSModules": true,
+    "toTypeScript.coffeescript.useCS2": true,
+
+    "coffeesense.useWorkspaceDependencies": true,
+
+    "eslint.ignoreUntitled": true,
+    "eslint.probe": [
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+        "html",
+        "vue",
+        "markdown",
+        "yaml",
+        "coffeescript"
+    ],
+    "eslint.useESLintClass": true,
+    "eslint.debug": true,
+    "eslint.format.enable": true,
+    "eslint.migration.2_x": "off",
+    "lintel.ignoredDirectories": [
+        "state",
+        "coverage",
+        "tmp",
+        ".tmp",
+        ".parcel-cache",
+        "node_modules",
+        "build",
+        "dist",
+        "out"
+    ],
+
+    "prettier.enableDebugLogs": false,
+    "jestrunner.preserveEditorFocus": true,
+    "jestrunner.configPath": "jest.config.js",
+    "jestrunner.changeDirectoryToWorkspaceRoot": false,
+    "jestrunner.codeLensSelector": "**/*.{test,spec}.{js,jsx,ts,tsx,mts,mjs,cjs,cts}",
+    "editor.inlineSuggest.showToolbar": "always",
+
+    "[typescript][typescriptreact][javascript][javascriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode",
-        "editor.formatOnSave": true
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "never",
+            "source.fixAll.eslint": "never",
+            "source.organizeImports": "never"
+        }
     },
+
+    "[coffeescript]": {
+        // "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.fixAll": "never",
+            "source.organizeImports": "never"
+        }
+    },
+
     "[jsonc]": {
-        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
         "editor.formatOnSave": false
     },
+
     "[json]": {
         "editor.defaultFormatter": "vscode.json-language-features",
         "editor.formatOnSave": false
     },
+
     // Misc
     "[yaml]": {
         "editor.defaultFormatter": "redhat.vscode-yaml"
@@ -127,18 +178,54 @@
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
+    "[git-rebase]": {
+        "editor.suggest.showWords": false,
+        "editor.suggest.showSnippets": false,
+        "workbench.editor.restoreViewState": false
+    },
+
     // Python
     "python.venvPath": ".venv",
-    "python.analysis.completeFunctionParens": true,
     "python.languageServer": "Pylance",
+    "python.analysis.autoFormatStrings": true,
+    "python.analysis.completeFunctionParens": true,
+    "python.analysis.userFileIndexingLimit": -1,
+    "python.analysis.enablePytestSupport": true,
+    "python.analysis.diagnosticMode": "workspace",
+    "python.analysis.inlayHints.pytestParameters": true,
+    "python.analysis.inlayHints.functionReturnTypes": true,
+    "python.analysis.enablePytestExtra": true,
+    "python.testing.pytestArgs": ["--capture=tee-sys"],
+    "python.testing.pytestEnabled": true,
+    "pythonTestExplorer.testFramework": "pytest",
+    "ruff.nativeServer": true,
+
+    // https://github.com/microsoft/vscode-python/blob/main/src/client/common/experiments/groups.ts
+    "python.experiments.optInto": [
+        "All"
+        // "pythonSurveyNotification",
+        // "pythonDiscoveryUsingWorkers",
+        // "pythonPromptNewToolsExt"
+    ],
     "[python]": {
         "editor.formatOnType": false,
-        "editor.defaultFormatter": "ms-python.python",
         "editor.wordBasedSuggestions": "off",
         "editor.suggestSelection": "first",
-        "editor.snippetSuggestions": "top"
+        "editor.snippetSuggestions": "top",
+        // "editor.defaultFormatter": "ms-python.python",
+        "editor.defaultFormatter": "eeyore.yapf",
+        "editor.formatOnSave": false,
+        "editor.codeActionsOnSave": {
+          "source.organizeImports": "explicit",
+          "source.fixAll": "never"
+        }
     },
+
     // Jupyter (trying to disable it)
+    "jupyter.disableJupyterAutoStart": true,
+    "jupyter.allowUnauthorizedRemoteConnection": true,
+    "jupyter.enableExtendedPythonKernelCompletions": true,
+    "jupyter.executionAnalysis.enabled": true,
     "notebook.cellToolbarLocation": {
         "default": "right",
         "jupyter-notebook": "left"
@@ -163,10 +250,12 @@
     "gitlens.blame.ignoreWhitespace": true,
 
     // Editor Settings
+    "editor.stickyScroll.enabled": false,
     "editor.cursorStyle": "line",
     "editor.cursorBlinking": "phase",
     "editor.cursorSmoothCaretAnimation": "off",
     "editor.cursorWidth": 1,
+    "window.zoomLevel": -1,
     "editor.fontFamily": "Menlo, Comic Sans MS",
     "editor.fontLigatures": false,
     "editor.fontSize": 19,
@@ -177,14 +266,25 @@
     "window.experimental.useSandbox": true,
     "breadcrumbs.icons": false,
     "debug.console.fontSize": 14,
-    "materialTheme.accent": "Blue",
     "scm.countBadge": "off",
-    "workbench.colorTheme": "Dark Atomized",
+
+
+    "materialTheme.accent": "Blue",
+
+    "oneDarkPro.vivid": false,
+    "oneDarkPro.italic": false,
+
+    "workbench.editor.limit.value": 1000,
+    "workbench.editor.enablePreviewFromQuickOpen": false,
+    "workbench.enableExperiments": true,
+
+    "editor.semanticHighlighting.enabled": false,
+
     "terminal.integrated.cursorStyle": "line",
     "terminal.integrated.fontFamily": "MesloLGS NF, Menlo, monospace",
     "terminal.integrated.fontSize": 13,
     "workbench.editor.limit.enabled": true,
-    "workbench.startupEditor": "welcomePageInEmptyWorkbench",
+    "workbench.startupEditor": "welcomePage",
     "workbench.colorCustomizations": {
         "editorBracketHighlight.foreground1": "#afbcc9F0",
         "editorBracketHighlight.foreground2": "#afbcc9F0",
@@ -344,8 +444,9 @@
         "terminal.ansiYellow": "#f4f99d"
     },
 
+    // "workbench.colorTheme": "One Dark Operator Theme",
+    "workbench.colorTheme": "Dark Atomized",
     "editor.tokenColorCustomizations": {
-
         "textMateRules": [
             {
                 "scope": "meta.function-call.generic.python",
@@ -363,18 +464,19 @@
                 "name": "variable.parameter.function.language.special.self.python",
                 "scope": "variable.parameter.function.language.special.self.python",
                 "settings": {
-                    "foreground": "#cd6592"
+                    "foreground": "#DFC184"
                 }
             },
             {
                 "name": "variable.language.special.self.python",
                 "scope": "variable.language.special.self.python",
                 "settings": {
-                    "foreground": "#cd6592"
+                    "foreground": "#DFC184"
                 }
-            },
+            }
         ]
     },
+
     "extensions.ignoreRecommendations": true,
     "search.quickOpen.includeHistory": false,
     "explorer.compactFolders": false,
@@ -383,11 +485,9 @@
     // Trying to disable
     "remote.containers.dockerPath": "xxxxxxxxxxxxxxxxxx",
 
+    // Privacy
     "telemetry.telemetryLevel": "off",
-
     "redhat.telemetry.enabled": false,
-    "sqltools.useNodeRuntime": true,
-    "sqltools.connections": [],
 
     "python.experiments.enabled": true,
     "github.copilot.enable": {
@@ -405,7 +505,6 @@
         "droid": true,
         "scss": false
     },
-    "typescript.updateImportsOnFileMove.enabled": "never",
     "gitlens.hovers.currentLine.over": "line",
     "gitlens.codeLens.enabled": false,
     "gitlens.currentLine.enabled": false,
@@ -529,6 +628,7 @@
         "filesystems",
         "FILLMODE",
         "fillna",
+        "firstname",
         "Fivetran",
         "FOGCOLOR",
         "FOGENABLE",
@@ -564,23 +664,30 @@
         "historicals",
         "HRESULT",
         "hwnd",
+        "IFNULL",
         "iframes",
         "ignorenulls",
         "inclusivity",
         "infinitescroll",
         "initcap",
         "INTERNALDESCRIPTION",
+        "inventoryitemlocations",
         "INVSRCALPHA",
         "isin",
+        "isort",
+        "ITEMFULFILLMENT",
         "JDBC",
         "joinkey",
         "jsmin",
         "jspark",
+        "jstat",
         "jwks",
         "klass",
         "klaw",
         "konlet",
         "kpis",
+        "lastmodifieddate",
+        "lastname",
         "leftanti",
         "Lightspeed",
         "lineitem",
@@ -595,6 +702,7 @@
         "markeddown",
         "MAXANISOTROPY",
         "maxdepth",
+        "mbps",
         "merch",
         "mesg",
         "metafield",
@@ -608,13 +716,17 @@
         "msrp",
         "mult",
         "myshopify",
+        "namenode",
         "namespacing",
+        "ndiv",
         "Neiman",
         "nerror",
         "networkidle",
         "newstore",
         "newyork",
         "nililotan",
+        "nocheck",
+        "nodemanager",
         "nonstock",
         "NVME",
         "officedocument",
@@ -665,6 +777,7 @@
         "psgss",
         "PURCH",
         "pycountry",
+        "pyproject",
         "pyspark",
         "pytest",
         "pytz",
@@ -689,8 +802,10 @@
         "reviewdog",
         "riskified",
         "rlike",
+        "ROCKSDB",
         "rootdir",
         "runcmd",
+        "salesrep",
         "secretstore",
         "Selfridges",
         "Sellthru",
@@ -698,16 +813,20 @@
         "SFTPAPI",
         "SFTPCSV",
         "sheetname",
+        "shellcheck",
         "shellescape",
         "shoppertrak",
+        "shortcircuit",
         "signum",
         "skus",
         "Skypad",
         "smartlook",
+        "smstraffic",
         "snapshotted",
         "Snapshotter",
         "Soldano",
         "spreadsheetml",
+        "sqltools",
         "SRCALPHA",
         "SRCBLEND",
         "stackdriver",
@@ -724,7 +843,10 @@
         "subnetwork",
         "subnetworks",
         "subpage",
+        "surjikal",
+        "tctoolbox",
         "teamworkinsight",
+        "teléfono",
         "thresholded",
         "thresholding",
         "tillerman",
@@ -739,8 +861,10 @@
         "Transpiles",
         "treeify",
         "txid",
+        "tyly",
         "typecheck",
         "udfs",
+        "uncache",
         "Unflatten",
         "unflattened",
         "uniquekey",
@@ -751,12 +875,15 @@
         "unpivoted",
         "unprefix",
         "unstash",
+        "upccode",
         "upcs",
         "upsell",
         "upserts",
         "USERINFO",
         "uuidv",
+        "venv",
         "VERTEXPROCESSING",
+        "virtualenvs",
         "Vtpm",
         "webdav",
         "Womenswear",
@@ -767,6 +894,10 @@
         "yhat",
         "ZENABLE"
     ],
+
+    // sql
+    "sqltools.useNodeRuntime": false,
+    "sqltools.connections": [],
     "SQLAnalyzer.graphOptions.default.taxiEdge": false,
     "SQLAnalyzer.graphOptions.default.executionTime": "ACTIVETIME",
     "SQLAnalyzer.graphOptions.default.expert": "EXPERT",
@@ -787,11 +918,14 @@
     "SQLAnalyzer.parsing.SQLScript.removeChildrenOfCESQLPopNode": false,
     "SQLAnalyzer.parsing.SQLScript.showCodeFragmentInLControlFlow": true,
     "SQLAnalyzer.parsing.SQLScript.showPragmaBlockInLControlFlow": true,
+    "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false,
+    "SAP HANA Database Explorer.enableSapWebAnalytics": false,
+
     "testExplorer.useNativeTesting": true,
     "testExplorer.showCollapseButton": true,
-    "pythonTestExplorer.testFramework": "pytest",
+
     "yarn.runInTerminal": false,
-    "typescript.tsserver.experimental.enableProjectDiagnostics": true,
+
     "problems.showCurrentInStatus": true,
     "workbench.tree.enableStickyScroll": false,
     "workbench.settings.enableNaturalLanguageSearch": false,
@@ -799,62 +933,17 @@
     "workbench.editor.showIcons": false,
     "workbench.editor.wrapTabs": true,
     "workbench.editor.showTabs": "multiple",
-    "SAP HANA Database Explorer.displaySapWebAnalyticsStartupNotification": false,
-    "SAP HANA Database Explorer.enableSapWebAnalytics": false,
+
     "terraform.languageServer.enable": false,
     "settingsSync.keybindingsPerPlatform": false,
-    "[git-rebase]": {
-        "editor.suggest.showWords": false,
-        "editor.suggest.showSnippets": false,
-        "workbench.editor.restoreViewState": false
-    },
+
     "editor.accessibilitySupport": "off",
     "githubPullRequests.pullBranch": "never",
-    "oneDarkPro.vivid": false,
-    "oneDarkPro.italic": false,
-    "jupyter.disableJupyterAutoStart": true,
-    "eslint.ignoreUntitled": true,
-    "eslint.probe": [
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-        "html",
-        "vue",
-        "markdown",
-        "yaml",
-        "coffeescript"
-    ],
-    "eslint.useESLintClass": true,
-    "eslint.debug": true,
-    "eslint.format.enable": true,
-    "eslint.migration.2_x": "off",
-    "lintel.ignoredDirectories": [
-        "state",
-        "coverage",
-        "tmp",
-        ".tmp",
-        ".parcel-cache",
-        "node_modules",
-        "build",
-        "dist",
-        "out"
-    ],
-    "prettier.enableDebugLogs": true,
-    "jestrunner.preserveEditorFocus": true,
-    "jestrunner.configPath": "jest.config.js",
-    "jestrunner.changeDirectoryToWorkspaceRoot": false,
-    "jestrunner.codeLensSelector": "**/*.{test,spec}.{js,jsx,ts,tsx,mts,mjs,cjs,cts}",
-    "editor.inlineSuggest.showToolbar": "always",
-    "python.analysis.autoFormatStrings": true,
-    "python.analysis.typeCheckingMode": "strict",
-    "python.analysis.userFileIndexingLimit": -1,
+
     "githubIssues.userCompletions.enabled": false,
     "editor.suggest.showUsers": false,
-    "gitlens.hovers.avatars": false,
-    "mypy-type-checker.importStrategy": "fromEnvironment",
-    "python.testing.pytestEnabled": true,
-    "python.analysis.inlayHints.functionReturnTypes": true,
+
+    "yaml.schemaStore.enable": true,
     "yaml.customTags": [
         "!secret scalar",
         "!secrets scalar",
@@ -889,32 +978,24 @@
     ],
     "aws.telemetry": false,
     "workbench.editor.tabActionCloseVisibility": false,
-    "python.analysis.enablePytestExtra": true,
-    "python.analysis.inlayHints.pytestParameters": true,
-    "python.testing.pytestArgs": [
-        "--capture=tee-sys"
-    ],
+
     "metals.serverVersion": "1.1.0+138-11704412-SNAPSHOT",
+
     "gitlens.ai.experimental.provider": "openai",
     "gitlens.ai.experimental.openai.model": "gpt-4-1106-preview",
-    "editor.stickyScroll.enabled": false,
-    "window.zoomLevel": -1,
-    "jupyter.allowUnauthorizedRemoteConnection": true,
-    "jupyter.enableExtendedPythonKernelCompletions": true,
-    "jupyter.executionAnalysis.enabled": true,
+    "gitlens.hovers.avatars": false,
+
     "hdinsight.enableSkipPysparkInstallation": true,
     "hdinsight.previousExtensionVersion": "1.1.19",
     "hdinsight.disableOpenSurveyLink": true,
     "cmake.showOptionsMovedNotification": false,
     "gitblame.commitUrl": "https://github.com${gitorigin.path}${tool.commitpath}${hash}",
     "github.copilot.editor.enableAutoCompletions": true,
-    "errorLens.enabledDiagnosticLevels": [
-        "error",
-        "warning"
-    ],
-    "errorLens.messageEnabled": false,
-    "workbench.colorTheme": "One Dark Operator Theme",
     "gitlens.advanced.messages": {
         "suppressIntegrationRequestTimedOutWarning": true
-    }
+    },
+    "errorLens.enabledDiagnosticLevels": ["error", "warning"],
+    "errorLens.messageEnabled": false,
+    "explorer.confirmPasteNative": false,
+    "go.toolsManagement.autoUpdate": true,
 }
